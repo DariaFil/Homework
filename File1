@@ -1,0 +1,11 @@
+#!/bin/bash
+
+Catalog=$1
+Type=$2
+Archive=$3
+
+mkdir $Catalog
+find . -name "*.$Type" -exec cp {} $Catalog/ \;
+tar -czf $Archive.tar.gz $Catalog
+
+echo "done"
