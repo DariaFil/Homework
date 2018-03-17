@@ -1,6 +1,5 @@
 #define MAINWORK
 #include "CGame.h"
-#include "Test.h"
 
 bool isParam(string line)
 {
