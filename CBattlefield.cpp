@@ -34,6 +34,6 @@ void BattleField::print_battlefield() {
 		cout << endl;
 	}
 }
-void BattleField::set_position(int i, int j, string data) {
+void BattleField::set_position(int i, int j, const string& data) {
 	BF[j][i].second = data;
 }

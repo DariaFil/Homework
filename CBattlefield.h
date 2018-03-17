@@ -14,7 +14,7 @@ public:
 	BattleField(int n, int m);
 	~BattleField();
 	void print_battlefield();
-	void set_position(int i, int j, string data);
+	void set_position(int i, int j, const string& data);
 
 	vector<vector<pair<string, string>>> BF;
 };
