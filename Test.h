@@ -393,6 +393,7 @@ void testLeaderBuilder()
 	CLeader* main_unit = dir.ConstructLeader(l_builder, 1);
 	main_unit->info();
 	main_unit->print_state();
+	delete main_unit;
 }
 void testBattlefield() {
 	CBattleField b(5, 5);
