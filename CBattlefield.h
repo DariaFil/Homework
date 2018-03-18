@@ -13,7 +13,7 @@ public:
 	CBattleField();
 	CBattleField(int n, int m);
 	~CBattleField();
-	void print_battlefield();
+	void print_battlefield() const;
 	void set_position(int i, int j, const string& data);
 
 	vector<vector<pair<string, string>>> BF;

@@ -7,7 +7,7 @@ class CArmy {
 public:
 	CArmy();
 	~CArmy();
-	void army_state();
+	void army_state() const;
 	vector<CUnit*> army_vector;
 };
 

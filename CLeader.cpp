@@ -77,9 +77,9 @@ void CLeader::set_mount(const MountType& m_mount) {
 	}
 }
 
-RaceType CLeader::get_race() { return race; }
+RaceType CLeader::get_race() const { return race; }
 
-void CLeader::info() {
+void CLeader::info() const {
 	cout << "Your leader of ";
 	if (race == HUMAN)
 		cout << "human";
@@ -123,7 +123,7 @@ void CLeader::info() {
 	cout << endl;
 }
 
-string CLeader::return_name() {
+string CLeader::return_name() const {
 	if (race == HUMAN)
 		return "HL";
 	else if (race == LIZARD)

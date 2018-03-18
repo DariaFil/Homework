@@ -1,5 +1,3 @@
-//#include "Test.h"
-#define MAINWORK
 #include "CGame.h"
 
 bool isParam(string line)
@@ -18,13 +16,6 @@ bool right_cin(string data, int min_param, int max_param)
 }
 
 int main() {
-
-#ifdef TESTS
-	all_tests();
-#undef MAINWORK
-#endif
-	
-#ifdef MAINWORK
 
 	CGame game;
 	string size1 = "0";
@@ -75,7 +66,5 @@ int main() {
 
 		game.createArmy(stoi(i), stoi(a), stoi(h), stoi(b), p + 1);
 	}
-
-#endif
 	return 0;
 }

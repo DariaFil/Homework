@@ -1,8 +1,6 @@
 #include "CLizard.h"
 
-void CLizardInfantryman::info() {
-	cout << "Lizard Infantryman" << endl;
-}
+void CLizardInfantryman::info() const {	cout << "Lizard Infantryman" << endl; }
 void CLizardInfantryman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
@@ -13,11 +11,9 @@ void CLizardInfantryman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CLizardInfantryman::return_name() { return "LI"; }
+string CLizardInfantryman::return_name() const { return "LI"; }
 
-void CLizardArcher::info() {
-	cout << "Lizard Archer" << endl;
-}
+void CLizardArcher::info() const { cout << "Lizard Archer" << endl; }
 void CLizardArcher::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
@@ -28,11 +24,9 @@ void CLizardArcher::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CLizardArcher::return_name() { return "LA"; }
+string CLizardArcher::return_name() const { return "LA"; }
 
-void CLizardHorseman::info() {
-	cout << "Lizard Horseman" << endl;
-}
+void CLizardHorseman::info() const { cout << "Lizard Horseman" << endl; }
 void CLizardHorseman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
@@ -43,11 +37,9 @@ void CLizardHorseman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CLizardHorseman::return_name() { return "LH"; }
+string CLizardHorseman::return_name() const { return "LH"; }
 
-void CLizardBerserk::info() {
-	cout << "Lizard Berserk" << endl;
-}
+void CLizardBerserk::info() const { cout << "Lizard Berserk" << endl; }
 void CLizardBerserk::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
@@ -58,4 +50,4 @@ void CLizardBerserk::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CLizardBerserk::return_name() { return "LB"; }
+string CLizardBerserk::return_name() const { return "LB"; }

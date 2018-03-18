@@ -18,7 +18,7 @@ CBattleField::CBattleField(int n, int m) {
 }
 CBattleField::~CBattleField() {}
 
-void CBattleField::print_battlefield() {
+void CBattleField::print_battlefield() const {
 	for (int i = 0; i < BF.size(); ++i) {
 		for (int j = 0; j < BF[i].size(); ++j)
 			if (BF[i][j].second == "") {

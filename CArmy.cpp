@@ -7,7 +7,7 @@ CArmy::~CArmy() {
 		delete army_vector[i];
 }
 
-void CArmy::army_state() {
+void CArmy::army_state() const {
 	int i;
 	for (i = 0; i < army_vector.size(); ++i)
 	{

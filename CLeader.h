@@ -24,11 +24,11 @@ public:
 	void set_armor(const ArmorType& m_armor);
 	void set_mount(const MountType& m_mount);
 
-	RaceType get_race();
+	RaceType get_race() const;
 
-	void info();
+	void info() const;
 
-	string return_name();
+	string return_name() const;
 	void ability_attack_bonus(const string& field_type);
 	void race_protection_bonus(const string& field_type);
 private:

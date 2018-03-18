@@ -11,14 +11,14 @@ using namespace std;
 class CUnit {
 public:
 	virtual void createUnit(int side, int number) = 0;
-	virtual void info() = 0;
+	virtual void info() const = 0;
 	virtual void race_protection_bonus(const string& field_type) = 0;
 	//void Move(const string& direction, vector<vector<string>> bf) = 0;
-	void print_state();
+	void print_state() const;
 
 	void set_position(int player, int number, int n, int m);
 
-	virtual string return_name() = 0;
+	virtual string return_name() const = 0;
 	~CUnit();
 	int x;
 	int y;

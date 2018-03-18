@@ -1,6 +1,6 @@
 #include "CUnit.h"
 
-void CUnit::print_state() {
+void CUnit::print_state() const {
 		cout << "State of unit of " << SIDE << " side number " << NUMBER << ":" << endl;
 		cout << "Health points: " << HP << endl;
 		cout << "Attack speed: " << ATTACK_SPEED << endl;
