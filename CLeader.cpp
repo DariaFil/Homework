@@ -113,11 +113,11 @@ void CLeader::info() {
 	cout << " armor";
 	if (mount != NONE) {
 		cout << " and rides the ";
-		if (weapon == HORSE)
+		if (mount == HORSE)
 			cout << "horse" << endl;
-		else if (weapon == LION)
+		else if (mount == LION)
 			cout << "lion" << endl;
-		else if (weapon == GRIFFIN)
+		else if (mount == GRIFFIN)
 			cout << "griffin" << endl;
 	}
 	cout << endl;
