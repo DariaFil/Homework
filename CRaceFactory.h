@@ -6,27 +6,27 @@
 #include "CLizard.h"
 #include "CBeast.h"
 
-class HumanArmyFactory : public ArmyFactory {
+class CHumanArmyFactory : public CArmyFactory {
 public:
-	Infantryman* createInfantryman(int side, int number);
-	Archer* createArcher(int side, int number);
-	Horseman* createHorseman(int side, int number);
-	Berserk* createBerserk(int side, int number);
+	CInfantryman* createInfantryman(int side, int number);
+	CArcher* createArcher(int side, int number);
+	CHorseman* createHorseman(int side, int number);
+	CBerserk* createBerserk(int side, int number);
 };
 
-class LizardArmyFactory : public ArmyFactory {
+class CLizardArmyFactory : public CArmyFactory {
 public:
-	Infantryman* createInfantryman(int side, int number);
-	Archer* createArcher(int side, int number);
-	Horseman* createHorseman(int side, int number);
-	Berserk* createBerserk(int side, int number);
+	CInfantryman* createInfantryman(int side, int number);
+	CArcher* createArcher(int side, int number);
+	CHorseman* createHorseman(int side, int number);
+	CBerserk* createBerserk(int side, int number);
 };
 
-class BeastArmyFactory : public ArmyFactory {
+class CBeastArmyFactory : public CArmyFactory {
 public:
-	Infantryman* createInfantryman(int side, int number);
-	Archer* createArcher(int side, int number);
-	Horseman* createHorseman(int side, int number);
-	Berserk* createBerserk(int side, int number);
+	CInfantryman* createInfantryman(int side, int number);
+	CArcher* createArcher(int side, int number);
+	CHorseman* createHorseman(int side, int number);
+	CBerserk* createBerserk(int side, int number);
 };
 #endif

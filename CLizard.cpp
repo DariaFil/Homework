@@ -1,9 +1,9 @@
 #include "CLizard.h"
 
-void LizardInfantryman::info() {
+void CLizardInfantryman::info() {
 	cout << "Lizard Infantryman" << endl;
 }
-void LizardInfantryman::race_protection_bonus(const string& field_type) {
+void CLizardInfantryman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -13,12 +13,12 @@ void LizardInfantryman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string LizardInfantryman::return_name() { return "LI"; }
+string CLizardInfantryman::return_name() { return "LI"; }
 
-void LizardArcher::info() {
+void CLizardArcher::info() {
 	cout << "Lizard Archer" << endl;
 }
-void LizardArcher::race_protection_bonus(const string& field_type) {
+void CLizardArcher::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -28,12 +28,12 @@ void LizardArcher::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string LizardArcher::return_name() { return "LA"; }
+string CLizardArcher::return_name() { return "LA"; }
 
-void LizardHorseman::info() {
+void CLizardHorseman::info() {
 	cout << "Lizard Horseman" << endl;
 }
-void LizardHorseman::race_protection_bonus(const string& field_type) {
+void CLizardHorseman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -43,12 +43,12 @@ void LizardHorseman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string LizardHorseman::return_name() { return "LH"; }
+string CLizardHorseman::return_name() { return "LH"; }
 
-void LizardBerserk::info() {
+void CLizardBerserk::info() {
 	cout << "Lizard Berserk" << endl;
 }
-void LizardBerserk::race_protection_bonus(const string& field_type) {
+void CLizardBerserk::race_protection_bonus(const string& field_type) {
 	if (field_type == "Water" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -58,4 +58,4 @@ void LizardBerserk::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string LizardBerserk::return_name() { return "LB"; }
+string CLizardBerserk::return_name() { return "LB"; }

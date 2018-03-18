@@ -5,22 +5,22 @@
 
 using namespace std;
 
-class Infantryman : public Unit {
+class CInfantryman : public CUnit {
 public:
 	void createUnit(int side, int number);
 };
 
-class Archer : public Unit {
+class CArcher : public CUnit {
 public:
 	void createUnit(int side, int number);
 };
 
-class Horseman : public Unit {
+class CHorseman : public CUnit {
 public:
 	void createUnit(int side, int number);
 };
 
-class Berserk : public Unit {
+class CBerserk : public CUnit {
 public:
 	void createUnit(int side, int number);
 };

@@ -1,6 +1,6 @@
 #include "CVarriors.h"
 
-void Infantryman::createUnit(int side, int number) {
+void CInfantryman::createUnit(int side, int number) {
 	PROTECTION = 50;
 	HP = 50;
 	ATTACK_SPEED = 20;
@@ -12,7 +12,7 @@ void Infantryman::createUnit(int side, int number) {
 	NUMBER = number;
 }
 
-void Archer::createUnit(int side, int number) {
+void CArcher::createUnit(int side, int number) {
 	PROTECTION = 40;
 	HP = 40;
 	ATTACK_SPEED = 40;
@@ -24,7 +24,7 @@ void Archer::createUnit(int side, int number) {
 	NUMBER = number;
 }
 
-void Horseman::createUnit(int side, int number) {
+void CHorseman::createUnit(int side, int number) {
 	PROTECTION = 60;
 	HP = 60;
 	ATTACK_SPEED = 30;
@@ -36,7 +36,7 @@ void Horseman::createUnit(int side, int number) {
 	NUMBER = number;
 }
 
-void Berserk::createUnit(int side, int number) {
+void CBerserk::createUnit(int side, int number) {
 	PROTECTION = 40;
 	HP = 90;
 	ATTACK_SPEED = 25;

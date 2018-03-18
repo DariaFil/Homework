@@ -1,9 +1,9 @@
 #include "CHuman.h"
 
-void HumanInfantryman::info() {
+void CHumanInfantryman::info() {
 	cout << "Human Infantryman" << endl;
 }
-void HumanInfantryman::race_protection_bonus(const string& field_type) {
+void CHumanInfantryman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Forest" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -13,12 +13,12 @@ void HumanInfantryman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string HumanInfantryman::return_name() { return "HI"; }
+string CHumanInfantryman::return_name() { return "HI"; }
 
-void HumanArcher::info() {
+void CHumanArcher::info() {
 	cout << "Human Archer" << endl;
 }
-void HumanArcher::race_protection_bonus(const string& field_type) {
+void CHumanArcher::race_protection_bonus(const string& field_type) {
 	if (field_type == "Forest" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -28,12 +28,12 @@ void HumanArcher::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string HumanArcher::return_name() { return "HA"; }
+string CHumanArcher::return_name() { return "HA"; }
 
-void HumanHorseman::info() {
+void CHumanHorseman::info() {
 	cout << "Human Horseman" << endl;
 }
-void HumanHorseman::race_protection_bonus(const string& field_type) {
+void CHumanHorseman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Forest" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -43,12 +43,12 @@ void HumanHorseman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string HumanHorseman::return_name() { return "HH"; }
+string CHumanHorseman::return_name() { return "HH"; }
 
-void HumanBerserk::info() {
+void CHumanBerserk::info() {
 	cout << "Human Berserk" << endl;
 }
-void HumanBerserk::race_protection_bonus(const string& field_type) {
+void CHumanBerserk::race_protection_bonus(const string& field_type) {
 	if (field_type == "Forest" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -58,4 +58,4 @@ void HumanBerserk::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string HumanBerserk::return_name() { return "HB"; }
+string CHumanBerserk::return_name() { return "HB"; }

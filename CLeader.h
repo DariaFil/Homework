@@ -11,10 +11,10 @@ enum WeaponType { SWORD, LANCE, BOW, MAGIC };
 enum ArmorType { LIGHT, MEDIUM, HARD };
 enum MountType { HORSE, LION, GRIFFIN, NONE };
 
-class Leader : public Unit {
+class CLeader : public CUnit {
 public:
-	Leader();
-	~Leader();
+	CLeader();
+	~CLeader();
 
 	void createUnit(int side, int number);
 
@@ -41,12 +41,12 @@ private:
 
 //-------------------------------------------------------------------------------
 
-class LeaderBuilder {
+class CLeaderBuilder {
 protected:
-	Leader* unit;
+	CLeader* unit;
 public:
-	LeaderBuilder();
-	virtual ~LeaderBuilder() {}
+	CLeaderBuilder();
+	virtual ~CLeaderBuilder() {}
 
 	virtual void createNewLeader(int side) = 0;
 	virtual void build_race() = 0;
@@ -55,15 +55,15 @@ public:
 	virtual void build_armor() = 0;
 	virtual void build_mount() = 0;
 
-	Leader* getLeader();
+	CLeader* getLeader();
 };
 
 //-------------------------------------------------------------------------------
 
-class ArmyLeaderBuilder : public LeaderBuilder {
+class CArmyLeaderBuilder : public CLeaderBuilder {
 public:
-	ArmyLeaderBuilder();
-	~ArmyLeaderBuilder();
+	CArmyLeaderBuilder();
+	~CArmyLeaderBuilder();
 
 	void createNewLeader(int side);
 	void build_race();
@@ -81,9 +81,9 @@ private:
 
 //-------------------------------------------------------------------------------
 
-class Director {
+class CDirector {
 public:
-	Leader* ConstructLeader(ArmyLeaderBuilder &unit_builder, int side);
+	CLeader* ConstructLeader(CArmyLeaderBuilder &unit_builder, int side);
 };
 
 #endif

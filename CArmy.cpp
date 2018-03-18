@@ -1,12 +1,13 @@
 #include "CArmy.h"
 
-Army::~Army() {
+CArmy::CArmy() {}
+CArmy::~CArmy() {
 	int i;
 	for (i = 0; i < army_vector.size(); ++i)
 		delete army_vector[i];
 }
 
-void Army::army_state() {
+void CArmy::army_state() {
 	int i;
 	for (i = 0; i < army_vector.size(); ++i)
 	{

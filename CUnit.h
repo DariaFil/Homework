@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class Unit {
+class CUnit {
 public:
 	virtual void createUnit(int side, int number) = 0;
 	virtual void info() = 0;
@@ -19,7 +19,7 @@ public:
 	void set_position(int player, int number, int n, int m);
 
 	virtual string return_name() = 0;
-	~Unit();
+	~CUnit();
 	int x;
 	int y;
 	int SIDE;

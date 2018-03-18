@@ -1,8 +1,7 @@
 #include "CUnit.h"
 
-void Unit::print_state() {
-		cout << "State of unit:" << endl;
-		cout << "Number: " << NUMBER << endl;
+void CUnit::print_state() {
+		cout << "State of unit of " << SIDE << " side number " << NUMBER << ":" << endl;
 		cout << "Health points: " << HP << endl;
 		cout << "Attack speed: " << ATTACK_SPEED << endl;
 		cout << "Attack forse: " << ATTACK_FORSE << endl;
@@ -14,7 +13,7 @@ void Unit::print_state() {
 		cout << endl;
 	}
 
-void Unit::set_position(int player, int number, int n, int m) {
+void CUnit::set_position(int player, int number, int n, int m) {
 		if (player == 1) {
 			y = 0;
 			x = number;
@@ -24,4 +23,4 @@ void Unit::set_position(int player, int number, int n, int m) {
 			x = m - number - 1;
 		}
 	}
-Unit::~Unit() {}
+CUnit::~CUnit() {}

@@ -8,11 +8,11 @@
 
 using namespace std;
 
-class BattleField {
+class CBattleField {
 public:
-	BattleField();
-	BattleField(int n, int m);
-	~BattleField();
+	CBattleField();
+	CBattleField(int n, int m);
+	~CBattleField();
 	void print_battlefield();
 	void set_position(int i, int j, const string& data);
 

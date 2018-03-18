@@ -3,11 +3,12 @@
 
 #include "CUnit.h"
 
-class Army {
+class CArmy {
 public:
-	~Army();
+	CArmy();
+	~CArmy();
 	void army_state();
-	vector<Unit*> army_vector;
+	vector<CUnit*> army_vector;
 };
 
 #endif

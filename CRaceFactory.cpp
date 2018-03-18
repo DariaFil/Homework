@@ -1,64 +1,64 @@
 #include "CRaceFactory.h"
 
-Infantryman* HumanArmyFactory::createInfantryman(int side, int number) {
-	HumanInfantryman* H = new HumanInfantryman;
+CInfantryman* CHumanArmyFactory::createInfantryman(int side, int number) {
+	CHumanInfantryman* H = new CHumanInfantryman;
 	H->createUnit(side, number);
 	return H;
 }
-Archer* HumanArmyFactory::createArcher(int side, int number) {
-	HumanArcher* H = new HumanArcher;
+CArcher* CHumanArmyFactory::createArcher(int side, int number) {
+	CHumanArcher* H = new CHumanArcher;
 	H->createUnit(side, number);
 	return H;
 }
-Horseman* HumanArmyFactory::createHorseman(int side, int number) {
-	HumanHorseman* H = new HumanHorseman;
+CHorseman* CHumanArmyFactory::createHorseman(int side, int number) {
+	CHumanHorseman* H = new CHumanHorseman;
 	H->createUnit(side, number);
 	return H;
 }
-Berserk* HumanArmyFactory::createBerserk(int side, int number) {
-	HumanBerserk* H = new HumanBerserk;
+CBerserk* CHumanArmyFactory::createBerserk(int side, int number) {
+	CHumanBerserk* H = new CHumanBerserk;
 	H->createUnit(side, number);
 	return H;
 }
 
-Infantryman* LizardArmyFactory::createInfantryman(int side, int number) {
-	LizardInfantryman* L = new LizardInfantryman;
+CInfantryman* CLizardArmyFactory::createInfantryman(int side, int number) {
+	CLizardInfantryman* L = new CLizardInfantryman;
 	L->createUnit(side, number);
 	return L;
 }
-Archer* LizardArmyFactory::createArcher(int side, int number) {
-	LizardArcher* L = new LizardArcher;
+CArcher* CLizardArmyFactory::createArcher(int side, int number) {
+	CLizardArcher* L = new CLizardArcher;
 	L->createUnit(side, number);
 	return L;
 }
-Horseman* LizardArmyFactory::createHorseman(int side, int number) {
-	LizardHorseman* L = new LizardHorseman;
+CHorseman* CLizardArmyFactory::createHorseman(int side, int number) {
+	CLizardHorseman* L = new CLizardHorseman;
 	L->createUnit(side, number);
 	return L;
 }
-Berserk* LizardArmyFactory::createBerserk(int side, int number) {
-	LizardBerserk* L = new LizardBerserk;
+CBerserk* CLizardArmyFactory::createBerserk(int side, int number) {
+	CLizardBerserk* L = new CLizardBerserk;
 	L->createUnit(side, number);
 	return L;
 }
 
-Infantryman* BeastArmyFactory::createInfantryman(int side, int number) {
-	BeastInfantryman* B = new BeastInfantryman;
+CInfantryman* CBeastArmyFactory::createInfantryman(int side, int number) {
+	CBeastInfantryman* B = new CBeastInfantryman;
 	B->createUnit(side, number);
 	return B;
 }
-Archer* BeastArmyFactory::createArcher(int side, int number) {
-	BeastArcher* B = new BeastArcher;
+CArcher* CBeastArmyFactory::createArcher(int side, int number) {
+	CBeastArcher* B = new CBeastArcher;
 	B->createUnit(side, number);
 	return B;
 }
-Horseman* BeastArmyFactory::createHorseman(int side, int number) {
-	BeastHorseman* B = new BeastHorseman;
+CHorseman* CBeastArmyFactory::createHorseman(int side, int number) {
+	CBeastHorseman* B = new CBeastHorseman;
 	B->createUnit(side, number);
 	return B;
 }
-Berserk* BeastArmyFactory::createBerserk(int side, int number) {
-	BeastBerserk* B = new BeastBerserk;
+CBerserk* CBeastArmyFactory::createBerserk(int side, int number) {
+	CBeastBerserk* B = new CBeastBerserk;
 	B->createUnit(side, number);
 	return B;
 }

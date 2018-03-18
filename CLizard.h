@@ -3,28 +3,28 @@
 
 #include "CVarriors.h"
 
-class LizardInfantryman : public Infantryman {
+class CLizardInfantryman : public CInfantryman {
 public:
 	void info();
 	void race_protection_bonus(const string& field_type);
 	string return_name();
 };
 
-class LizardArcher : public Archer {
+class CLizardArcher : public CArcher {
 public:
 	void info();
 	void race_protection_bonus(const string& field_type);
 	string return_name();
 };
 
-class LizardHorseman : public Horseman {
+class CLizardHorseman : public CHorseman {
 public:
 	void info();
 	void race_protection_bonus(const string& field_type);
 	string return_name();
 };
 
-class LizardBerserk : public Berserk {
+class CLizardBerserk : public CBerserk {
 public:
 	void info();
 	void race_protection_bonus(const string& field_type);

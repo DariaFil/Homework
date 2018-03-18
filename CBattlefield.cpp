@@ -1,7 +1,7 @@
 #include "CBattlefield.h"
 
-BattleField::BattleField() {}
-BattleField::BattleField(int n, int m) {
+CBattleField::CBattleField() {}
+CBattleField::CBattleField(int n, int m) {
 	BF.resize(m);
 	for (int i = 0; i < m; ++i) {
 		BF[i].resize(n);
@@ -16,9 +16,9 @@ BattleField::BattleField(int n, int m) {
 		}
 	}
 }
-BattleField::~BattleField() {}
+CBattleField::~CBattleField() {}
 
-void BattleField::print_battlefield() {
+void CBattleField::print_battlefield() {
 	for (int i = 0; i < BF.size(); ++i) {
 		for (int j = 0; j < BF[i].size(); ++j)
 			if (BF[i][j].second == "") {
@@ -34,6 +34,6 @@ void BattleField::print_battlefield() {
 		cout << endl;
 	}
 }
-void BattleField::set_position(int i, int j, const string& data) {
+void CBattleField::set_position(int i, int j, const string& data) {
 	BF[j][i].second = data;
 }

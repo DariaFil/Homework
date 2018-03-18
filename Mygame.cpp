@@ -20,7 +20,7 @@ int main() {
 
 #ifdef MAINWORK
 
-	Game game;
+	CGame game;
 	string size1 = "0";
 	string size2 = "0";
 	while (!right_cin(size1, 10, 50)) {

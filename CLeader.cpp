@@ -1,9 +1,9 @@
 #include "CLeader.h"
 
-Leader::Leader() {}
-Leader::~Leader() {}
+CLeader::CLeader() {}
+CLeader::~CLeader() {}
 
-void Leader::createUnit(int side, int number) {
+void CLeader::createUnit(int side, int number) {
 	HP = 100;
 	ATTACK_SPEED = 30;
 	ATTACK_FORSE = 20;
@@ -15,13 +15,13 @@ void Leader::createUnit(int side, int number) {
 	NUMBER = number;
 }
 
-void Leader::set_race(const RaceType& m_race) {
+void CLeader::set_race(const RaceType& m_race) {
 	race = m_race;
 }
-void Leader::set_ability(const AbilityType& m_abil) {
+void CLeader::set_ability(const AbilityType& m_abil) {
 	abil = m_abil;
 }
-void Leader::set_weapon(const WeaponType& m_weapon) {
+void CLeader::set_weapon(const WeaponType& m_weapon) {
 	weapon = m_weapon;
 	if (weapon == SWORD) {
 		ATTACK_FORSE += 10;
@@ -43,7 +43,7 @@ void Leader::set_weapon(const WeaponType& m_weapon) {
 		RADIUS += 1;
 	}
 }
-void Leader::set_armor(const ArmorType& m_armor) {
+void CLeader::set_armor(const ArmorType& m_armor) {
 	armor = m_armor;
 	if (armor == LIGHT)
 		PROTECTION += 10;
@@ -58,7 +58,7 @@ void Leader::set_armor(const ArmorType& m_armor) {
 		REWARD += 20;
 	}
 }
-void Leader::set_mount(const MountType& m_mount) {
+void CLeader::set_mount(const MountType& m_mount) {
 	mount = m_mount;
 	if (mount == HORSE) {
 		SPEED += 1;
@@ -77,9 +77,9 @@ void Leader::set_mount(const MountType& m_mount) {
 	}
 }
 
-RaceType Leader::get_race() { return race; }
+RaceType CLeader::get_race() { return race; }
 
-void Leader::info() {
+void CLeader::info() {
 	cout << "Your leader of ";
 	if (race == HUMAN)
 		cout << "human";
@@ -123,7 +123,7 @@ void Leader::info() {
 	cout << endl;
 }
 
-string Leader::return_name() {
+string CLeader::return_name() {
 	if (race == HUMAN)
 		return "HL";
 	else if (race == LIZARD)
@@ -131,7 +131,7 @@ string Leader::return_name() {
 	else if (race == BEAST)
 		return "BL";
 }
-void Leader::ability_attack_bonus(const string& field_type) {
+void CLeader::ability_attack_bonus(const string& field_type) {
 	if (field_type == "Field" && abil == RUNNING && !InField) {
 		ATTACK_SPEED += 10;
 		InField = true;
@@ -163,7 +163,7 @@ void Leader::ability_attack_bonus(const string& field_type) {
 		ATTACK_SPEED += 20;
 	}
 }
-void Leader::race_protection_bonus(const string& field_type) {
+void CLeader::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && race == BEAST && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -192,19 +192,19 @@ void Leader::race_protection_bonus(const string& field_type) {
 
 //-------------------------------------------------------------------------------
 
-LeaderBuilder::LeaderBuilder() : unit(0) {}
-Leader* LeaderBuilder::getLeader() { return unit; }
+CLeaderBuilder::CLeaderBuilder() : unit(0) {}
+CLeader* CLeaderBuilder::getLeader() { return unit; }
 
 //-------------------------------------------------------------------------------
 
-ArmyLeaderBuilder::ArmyLeaderBuilder() : LeaderBuilder() {}
-ArmyLeaderBuilder::~ArmyLeaderBuilder() {}
+CArmyLeaderBuilder::CArmyLeaderBuilder() : CLeaderBuilder() {}
+CArmyLeaderBuilder::~CArmyLeaderBuilder() {}
 
-void ArmyLeaderBuilder::createNewLeader(int side) {
-	unit = new Leader();
+void CArmyLeaderBuilder::createNewLeader(int side) {
+	unit = new CLeader();
 	unit->createUnit(side, 0);
 }
-void ArmyLeaderBuilder::build_race() {
+void CArmyLeaderBuilder::build_race() {
 	int answer = 0;
 	do {
 		answer = 0;
@@ -220,7 +220,7 @@ void ArmyLeaderBuilder::build_race() {
 			answer = 1;
 	} while (answer);
 }
-void ArmyLeaderBuilder::build_ability() {
+void CArmyLeaderBuilder::build_ability() {
 	int answer = 0;
 	do {
 		answer = 0;
@@ -236,7 +236,7 @@ void ArmyLeaderBuilder::build_ability() {
 			answer = 1;
 	} while (answer);
 }
-void ArmyLeaderBuilder::build_weapon() {
+void CArmyLeaderBuilder::build_weapon() {
 	int answer = 1;
 	do {
 		answer = 0;
@@ -254,7 +254,7 @@ void ArmyLeaderBuilder::build_weapon() {
 			answer = 1;
 	} while (answer);
 }
-void ArmyLeaderBuilder::build_armor() {
+void CArmyLeaderBuilder::build_armor() {
 	int answer = 0;
 	do {
 		answer = 0;
@@ -270,7 +270,7 @@ void ArmyLeaderBuilder::build_armor() {
 			answer = 1;
 	} while (answer);
 }
-void ArmyLeaderBuilder::build_mount() {
+void CArmyLeaderBuilder::build_mount() {
 	int answer = 0;
 	do {
 		answer = 0;
@@ -291,7 +291,7 @@ void ArmyLeaderBuilder::build_mount() {
 
 //-------------------------------------------------------------------------------
 
-Leader* Director::ConstructLeader(ArmyLeaderBuilder &unit_builder, int side) {
+CLeader* CDirector::ConstructLeader(CArmyLeaderBuilder &unit_builder, int side) {
 	unit_builder.createNewLeader(side);
 	unit_builder.build_race();
 	unit_builder.build_ability();

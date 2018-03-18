@@ -1,9 +1,9 @@
 #include "CBeast.h"
 
-void BeastInfantryman::info() {
+void CBeastInfantryman::info() {
 	cout << "Beast Infantryman" << endl;
 }
-void BeastInfantryman::race_protection_bonus(const string& field_type) {
+void CBeastInfantryman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -13,12 +13,12 @@ void BeastInfantryman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string BeastInfantryman::return_name() { return "BI"; }
+string CBeastInfantryman::return_name() { return "BI"; }
 
-void BeastArcher::info() {
+void CBeastArcher::info() {
 	cout << "Beast Archer" << endl;
 }
-void BeastArcher::race_protection_bonus(const string& field_type) {
+void CBeastArcher::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -28,12 +28,12 @@ void BeastArcher::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string BeastArcher::return_name() { return "BA"; }
+string CBeastArcher::return_name() { return "BA"; }
 
-void BeastHorseman::info() {
+void CBeastHorseman::info() {
 	cout << "Beast Horseman" << endl;
 }
-void BeastHorseman::race_protection_bonus(const string& field_type) {
+void CBeastHorseman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -43,12 +43,12 @@ void BeastHorseman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string BeastHorseman::return_name() { return "BH"; }
+string CBeastHorseman::return_name() { return "BH"; }
 
-void BeastBerserk::info() {
+void CBeastBerserk::info() {
 	cout << "Beast Berserk" << endl;
 }
-void BeastBerserk::race_protection_bonus(const string& field_type) {
+void CBeastBerserk::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
 		InField = true;
@@ -58,4 +58,4 @@ void BeastBerserk::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string BeastBerserk::return_name() { return "BB"; }
+string CBeastBerserk::return_name() { return "BB"; }
