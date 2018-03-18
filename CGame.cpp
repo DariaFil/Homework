@@ -49,7 +49,6 @@ void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 	p->army_state();
 	bfield->print_battlefield();
 	Player_army[side - 1] = p;
-	delete main_unit;
 	delete factory;
 }
 
