@@ -1,4 +1,4 @@
-#include "Test.h"
+//#include "Test.h"
 #define MAINWORK
 #include "CGame.h"
 
