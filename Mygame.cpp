@@ -1,3 +1,4 @@
+#include "Test.h"
 #define MAINWORK
 #include "CGame.h"
 
@@ -18,6 +19,11 @@ bool right_cin(string data, int min_param, int max_param)
 
 int main() {
 
+#ifdef TESTS
+	all_tests();
+#undef MAINWORK
+#endif
+	
 #ifdef MAINWORK
 
 	CGame game;
