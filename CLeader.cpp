@@ -193,7 +193,9 @@ void CLeader::race_protection_bonus(const string& field_type) {
 //-------------------------------------------------------------------------------
 
 CLeaderBuilder::CLeaderBuilder() : unit(0) {}
-CLeader* CLeaderBuilder::getLeader() { return unit; }
+CLeader* CLeaderBuilder::getLeader() {
+	return unit;
+}
 
 //-------------------------------------------------------------------------------
 
