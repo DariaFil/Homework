@@ -386,8 +386,7 @@ void testLeader() {
 	else
 		cout << "Leader Return name failure" << endl;
 }
-void testLeaderBuilder()
-{
+void testLeaderBuilder() {
 	CDirector dir;
 	CArmyLeaderBuilder l_builder;
 	CLeader* main_unit = dir.ConstructLeader(l_builder, 1);
