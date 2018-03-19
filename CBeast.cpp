@@ -1,6 +1,8 @@
 #include "CBeast.h"
 
-void CBeastInfantryman::info() const { cout << "Beast Infantryman" << endl; }
+void CBeastInfantryman::info() const {
+	cout << "Beast Infantryman" << endl;
+}
 void CBeastInfantryman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
@@ -11,9 +13,13 @@ void CBeastInfantryman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CBeastInfantryman::return_name() const { return "BI"; }
+string CBeastInfantryman::return_name() const {
+	return "BI";
+}
 
-void CBeastArcher::info() const { cout << "Beast Archer" << endl; }
+void CBeastArcher::info() const {
+	cout << "Beast Archer" << endl;
+}
 void CBeastArcher::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
@@ -24,9 +30,13 @@ void CBeastArcher::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CBeastArcher::return_name() const { return "BA"; }
+string CBeastArcher::return_name() const {
+	return "BA";
+}
 
-void CBeastHorseman::info() const { cout << "Beast Horseman" << endl; }
+void CBeastHorseman::info() const {
+	cout << "Beast Horseman" << endl;
+}
 void CBeastHorseman::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
@@ -37,9 +47,13 @@ void CBeastHorseman::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CBeastHorseman::return_name() const { return "BH"; }
+string CBeastHorseman::return_name() const {
+	return "BH";
+}
 
-void CBeastBerserk::info() const { cout << "Beast Berserk" << endl; }
+void CBeastBerserk::info() const {
+	cout << "Beast Berserk" << endl;
+}
 void CBeastBerserk::race_protection_bonus(const string& field_type) {
 	if (field_type == "Field" && !InField) {
 		PROTECTION += 10;
@@ -50,4 +64,6 @@ void CBeastBerserk::race_protection_bonus(const string& field_type) {
 		InField = false;
 	}
 }
-string CBeastBerserk::return_name() const { return "BB"; }
+string CBeastBerserk::return_name() const {
+	return "BB";
+}
