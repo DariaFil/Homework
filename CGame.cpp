@@ -3,12 +3,10 @@
 CGame::CGame() {
 	Player_army.resize(2);
 }
-
 void CGame::createBattleField(int n, int m) {
 	bfield = new CBattleField(n, m);
 	bfield->print_battlefield();
 }
-
 void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 	CDirector dir;
 	CArmyLeaderBuilder l_builder;

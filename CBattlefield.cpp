@@ -8,11 +8,11 @@ CBattleField::CBattleField(int n, int m) {
 		for (int j = 0; j < n; ++j) {
 			int r = rand();
 			if (r % 3 == 1)
-				BF[i][j].first = "Field";
+				BF[i][j].first = FIELD;
 			else if (r % 3 == 2)
-				BF[i][j].first = "Forest";
+				BF[i][j].first = FOREST;
 			else
-				BF[i][j].first = "Water";
+				BF[i][j].first = WATER;
 		}
 	}
 }
@@ -22,11 +22,11 @@ void CBattleField::print_battlefield() const {
 	for (int i = 0; i < BF.size(); ++i) {
 		for (int j = 0; j < BF[i].size(); ++j)
 			if (BF[i][j].second == "") {
-				if (BF[i][j].first == "Field")
+				if (BF[i][j].first == FIELD)
 					cout << "_  ";
-				else if (BF[i][j].first == "Forest")
+				else if (BF[i][j].first == FOREST)
 					cout << "F  ";
-				else if (BF[i][j].first == "Water")
+				else if (BF[i][j].first == WATER)
 					cout << "~  ";
 			}
 			else
