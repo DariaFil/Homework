@@ -77,7 +77,9 @@ void CLeader::set_mount(const MountType& m_mount) {
 	}
 }
 
-RaceType CLeader::get_race() const { return race; }
+RaceType CLeader::get_race() const {
+	return race;
+}
 
 void CLeader::info() const {
 	cout << "Your leader of ";
