@@ -7,10 +7,18 @@ void testHI() {
 	CHumanInfantryman h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
+	if (s == "Human Infantryman")
+		cout << "HI info done" << endl;
+	else
+		cout << "HI info failure" << endl;
+	if (p == ptest)
+		cout << "HI state & bonus done" << endl;
+	else
+		cout << "HI state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "HI X done" << endl;
 	else
@@ -36,10 +44,18 @@ void testHA() {
 	CHumanArcher h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
+	if (s == "Human Archer")
+		cout << "HA info done" << endl;
+	else
+		cout << "HA info failure" << endl;
+	if (p == ptest)
+		cout << "HA state & bonus done" << endl;
+	else
+		cout << "HA state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "HA X done" << endl;
 	else
@@ -65,10 +81,18 @@ void testHH() {
 	CHumanHorseman h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
+	if (s == "Human Horseman")
+		cout << "HH info done" << endl;
+	else
+		cout << "HH info failure" << endl;
+	if (p == ptest)
+		cout << "HH state & bonus done" << endl;
+	else
+		cout << "HH state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "HH X done" << endl;
 	else
@@ -94,10 +118,18 @@ void testHB() {
 	CHumanBerserk h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
+	if (s == "Human Berserk")
+		cout << "HB info done" << endl;
+	else
+		cout << "HB info failure" << endl;
+	if (p == ptest)
+		cout << "HB state & bonus done" << endl;
+	else
+		cout << "HB state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "HB X done" << endl;
 	else
@@ -123,10 +155,18 @@ void testLI() {
 	CLizardInfantryman h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(WATER);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
+	if (s == "Lizard Infantryman")
+		cout << "LI info done" << endl;
+	else
+		cout << "LI info failure" << endl;
+	if (p == ptest)
+		cout << "LI state & bonus done" << endl;
+	else
+		cout << "LI state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "LI X done" << endl;
 	else
@@ -152,10 +192,18 @@ void testLA() {
 	CLizardArcher h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(WATER);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
+	if (s == "Lizard Archer")
+		cout << "LA info done" << endl;
+	else
+		cout << "LA info failure" << endl;
+	if (p == ptest)
+		cout << "LA state & bonus done" << endl;
+	else
+		cout << "LA state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "LA X done" << endl;
 	else
@@ -181,10 +229,18 @@ void testLH() {
 	CLizardHorseman h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(WATER);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
+	if (s == "Lizard Horseman")
+		cout << "LH info done" << endl;
+	else
+		cout << "LH info failure" << endl;
+	if (p == ptest)
+		cout << "LH state & bonus done" << endl;
+	else
+		cout << "LH state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "LH X done" << endl;
 	else
@@ -210,10 +266,18 @@ void testLB() {
 	CLizardBerserk h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(WATER);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
+	if (s == "Lizard Berserk")
+		cout << "LB info done" << endl;
+	else
+		cout << "LB info failure" << endl;
+	if (p == ptest)
+		cout << "LB state & bonus done" << endl;
+	else
+		cout << "LB state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "LB X done" << endl;
 	else
@@ -239,10 +303,18 @@ void testBI() {
 	CBeastInfantryman h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
+	if (s == "Beast Infantryman")
+		cout << "BI info done" << endl;
+	else
+		cout << "BI info failure" << endl;
+	if (p == ptest)
+		cout << "BI state & bonus done" << endl;
+	else
+		cout << "BI state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "BI X done" << endl;
 	else
@@ -268,10 +340,18 @@ void testBA() {
 	CBeastArcher h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
+	if (s == "Beast Archer")
+		cout << "BA info done" << endl;
+	else
+		cout << "BA info failure" << endl;
+	if (p == ptest)
+		cout << "BA state & bonus done" << endl;
+	else
+		cout << "BA state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "BA X done" << endl;
 	else
@@ -297,10 +377,18 @@ void testBH() {
 	CBeastHorseman h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
+	if (s == "Beast Horseman")
+		cout << "BH info done" << endl;
+	else
+		cout << "BH info failure" << endl;
+	if (p == ptest)
+		cout << "BH state & bonus done" << endl;
+	else
+		cout << "BH state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "BH X done" << endl;
 	else
@@ -326,10 +414,18 @@ void testBB() {
 	CBeastBerserk h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
+	if (s == "Beast Berserk")
+		cout << "BB info done" << endl;
+	else
+		cout << "BB info failure" << endl;
+	if (p == ptest)
+		cout << "BB state & bonus done" << endl;
+	else
+		cout << "BB state or bonus failure" << endl;
 	if (h.x == 1)
 		cout << "BB X done" << endl;
 	else
@@ -360,11 +456,19 @@ void testLeader() {
 	h.set_armor(LIGHT);
 	h.set_mount(HORSE);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	h.info();
-	h.print_state();
+	string s = h.info();
 	h.race_protection_bonus(FOREST);
 	h.ability_attack_bonus(FIELD);
-	h.print_state();
+	vector<int> p = h.print_state();
+	vector<int> ptest = { 1, 1, 100, 30, 40, 3, 4, 70, 80 };
+	if (s == "Your leader of human race has running ability, is armred with sword and light armor and rides the horse")
+		cout << "Leader info done" << endl;
+	else
+		cout << "Leader info failure" << endl;
+	if (p == ptest)
+		cout << "Leader state & bonuses done" << endl;
+	else
+		cout << "Leader state or bonuses failure" << endl;
 	if (h.x == 1)
 		cout << "Leader X done" << endl;
 	else

@@ -5,28 +5,28 @@
 
 class CBeastInfantryman : public CInfantryman {
 public:
-	void info() const;
+	string info() const;
 	void race_protection_bonus(const FieldType& field_type);
 	string return_name() const;
 };
 
 class CBeastArcher : public CArcher {
 public:
-	void info() const;
+	string info() const;
 	void race_protection_bonus(const FieldType& field_type);
 	string return_name() const;
 };
 
 class CBeastHorseman : public CHorseman {
 public:
-	void info() const;
+	string info() const;
 	void race_protection_bonus(const FieldType& field_type);
 	string return_name() const;
 };
 
 class CBeastBerserk : public CBerserk {
 public:
-	void info() const;
+	string info() const;
 	void race_protection_bonus(const FieldType& field_type);
 	string return_name() const;
 };

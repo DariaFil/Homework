@@ -26,7 +26,7 @@ public:
 
 	RaceType get_race() const;
 
-	void info() const;
+	string info() const;
 
 	string return_name() const;
 	void ability_attack_bonus(const FieldType& field_type);

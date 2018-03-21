@@ -81,48 +81,49 @@ RaceType CLeader::get_race() const {
 	return race;
 }
 
-void CLeader::info() const {
-	cout << "Your leader of ";
+string CLeader::info() const {
+	string s = "Your leader of ";
 	if (race == HUMAN)
-		cout << "human";
+		s += "human";
 	else if (race == LIZARD)
-		cout << "lizard";
+		s += "lizard";
 	else if (race == BEAST)
-		cout << "beast";
-	cout << " race has ";
+		s += "beast";
+	s += " race has ";
 	if (abil == RUNNING)
-		cout << "running";
+		s += "running";
 	else if (abil == SWIMMING)
-		cout << "swimming";
+		s += "swimming";
 	else if (abil == FLYING)
-		cout << "flying";
-	cout << " ability, is armred with ";
+		s += "flying";
+	s += " ability, is armred with ";
 	if (weapon == SWORD)
-		cout << "sword";
+		s += "sword";
 	else if (weapon == LANCE)
-		cout << "lance";
+		s += "lance";
 	else if (weapon == BOW)
-		cout << "bow";
+		s += "bow";
 	else if (weapon == MAGIC)
-		cout << "magic";
-	cout << " and ";
+		s += "magic";
+	s += " and ";
 	if (armor == LIGHT)
-		cout << "light";
+		s += "light";
 	else if (armor == MEDIUM)
-		cout << "medium";
+		s += "medium";
 	else if (armor == HARD)
-		cout << "hard";
-	cout << " armor";
+		s += "hard";
+	s += " armor";
 	if (mount != NONE) {
-		cout << " and rides the ";
+		s += " and rides the ";
 		if (mount == HORSE)
-			cout << "horse" << endl;
+			s += "horse";
 		else if (mount == LION)
-			cout << "lion" << endl;
+			s += "lion";
 		else if (mount == GRIFFIN)
-			cout << "griffin" << endl;
+			s += "griffin";
 	}
-	cout << endl;
+	cout << s << endl;
+	return s;
 }
 
 string CLeader::return_name() const {
