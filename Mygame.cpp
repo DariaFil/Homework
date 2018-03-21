@@ -61,7 +61,6 @@ int main() {
 				cin >> b;
 			}
 		}
-
 		game.createArmy(stoi(i), stoi(a), stoi(h), stoi(b), p + 1);
 	}
 	return 0;

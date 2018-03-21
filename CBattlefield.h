@@ -8,6 +8,11 @@
 
 using namespace std;
 
+#ifndef FIELDTYPE_DEFINED
+#define FIELDTYPE_DEFINED
+enum FieldType { FIELD = 0, FOREST, WATER };
+#endif
+
 class CBattleField {
 public:
 	CBattleField();
@@ -16,7 +21,7 @@ public:
 	void print_battlefield() const;
 	void set_position(int i, int j, const string& data);
 
-	vector<vector<pair<string, string>>> BF;
+	vector<vector<pair<FieldType, string>>> BF;
 };
 
 #endif

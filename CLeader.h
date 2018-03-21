@@ -29,8 +29,8 @@ public:
 	void info() const;
 
 	string return_name() const;
-	void ability_attack_bonus(const string& field_type);
-	void race_protection_bonus(const string& field_type);
+	void ability_attack_bonus(const FieldType& field_type);
+	void race_protection_bonus(const FieldType& field_type);
 private:
 	RaceType race;
 	AbilityType abil;

@@ -3,12 +3,12 @@
 void CBeastInfantryman::info() const {
 	cout << "Beast Infantryman" << endl;
 }
-void CBeastInfantryman::race_protection_bonus(const string& field_type) {
-	if (field_type == "Field" && !InField) {
+void CBeastInfantryman::race_protection_bonus(const FieldType& field_type) {
+	if (field_type == FIELD && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	else if (field_type != "Field" && InField) {
+	else if (field_type != FIELD && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}
@@ -20,12 +20,12 @@ string CBeastInfantryman::return_name() const {
 void CBeastArcher::info() const {
 	cout << "Beast Archer" << endl;
 }
-void CBeastArcher::race_protection_bonus(const string& field_type) {
-	if (field_type == "Field" && !InField) {
+void CBeastArcher::race_protection_bonus(const FieldType& field_type) {
+	if (field_type == FIELD && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	else if (field_type != "Field" && InField) {
+	else if (field_type != FIELD && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}
@@ -37,12 +37,12 @@ string CBeastArcher::return_name() const {
 void CBeastHorseman::info() const {
 	cout << "Beast Horseman" << endl;
 }
-void CBeastHorseman::race_protection_bonus(const string& field_type) {
-	if (field_type == "Field" && !InField) {
+void CBeastHorseman::race_protection_bonus(const FieldType& field_type) {
+	if (field_type == FIELD && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	else if (field_type != "Field" && InField) {
+	else if (field_type != FIELD && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}
@@ -54,12 +54,12 @@ string CBeastHorseman::return_name() const {
 void CBeastBerserk::info() const {
 	cout << "Beast Berserk" << endl;
 }
-void CBeastBerserk::race_protection_bonus(const string& field_type) {
-	if (field_type == "Field" && !InField) {
+void CBeastBerserk::race_protection_bonus(const FieldType& field_type) {
+	if (field_type == FIELD && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	else if (field_type != "Field" && InField) {
+	else if (field_type != FIELD && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}

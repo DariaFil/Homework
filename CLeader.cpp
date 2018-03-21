@@ -130,63 +130,63 @@ string CLeader::return_name() const {
 		return "HL";
 	else if (race == LIZARD)
 		return "LL";
-	else if (race == BEAST)
+	else
 		return "BL";
 }
-void CLeader::ability_attack_bonus(const string& field_type) {
-	if (field_type == "Field" && abil == RUNNING && !InField) {
+void CLeader::ability_attack_bonus(const FieldType& field_type) {
+	if (field_type == FIELD && abil == RUNNING && !InField) {
 		ATTACK_SPEED += 10;
 		InField = true;
 	}
-	if (field_type == "Water" && abil == SWIMMING && !InField) {
+	if (field_type == WATER && abil == SWIMMING && !InField) {
 		ATTACK_SPEED += 10;
 		InField = true;
 	}
-	if (field_type == "Water" && abil == FLYING && !InField) {
+	if (field_type == WATER && abil == FLYING && !InField) {
 		ATTACK_SPEED -= 10;
 		InField = true;
 	}
-	if ((field_type == "Field" || field_type == "Forest") && abil == FLYING && !InField) {
+	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && !InField) {
 		ATTACK_SPEED += 10;
 		InField = true;
 	}
-	if (field_type != "Field" && abil == RUNNING && InField) {
-		ATTACK_SPEED -= 10;
-		InField = false;
-	}
-	if (field_type != "Water" && abil == SWIMMING && InField) {
+	if (field_type != FIELD && abil == RUNNING && InField) {
 		ATTACK_SPEED -= 10;
 		InField = false;
 	}
-	if (field_type == "Water" && abil == FLYING && InField) {
+	if (field_type != WATER && abil == SWIMMING && InField) {
+		ATTACK_SPEED -= 10;
+		InField = false;
+	}
+	if (field_type == WATER && abil == FLYING && InField) {
 		ATTACK_SPEED += 20;
 	}
-	if ((field_type == "Field" || field_type == "Forest") && abil == FLYING && InField) {
+	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && InField) {
 		ATTACK_SPEED += 20;
 	}
 }
-void CLeader::race_protection_bonus(const string& field_type) {
-	if (field_type == "Field" && race == BEAST && !InField) {
+void CLeader::race_protection_bonus(const FieldType& field_type) {
+	if (field_type == FIELD && race == BEAST && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	if (field_type == "Forest" && race == HUMAN && !InField) {
+	if (field_type == FOREST && race == HUMAN && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	if (field_type == "Water" && race == LIZARD && !InField) {
+	if (field_type == WATER && race == LIZARD && !InField) {
 		PROTECTION += 10;
 		InField = true;
 	}
-	if (field_type != "Field" && race == BEAST && InField) {
+	if (field_type != FIELD && race == BEAST && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}
-	if (field_type != "Forest" && race == HUMAN && InField) {
+	if (field_type != FOREST && race == HUMAN && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}
-	if (field_type != "Water" && race == LIZARD && InField) {
+	if (field_type != WATER && race == LIZARD && InField) {
 		PROTECTION -= 10;
 		InField = false;
 	}
@@ -194,7 +194,7 @@ void CLeader::race_protection_bonus(const string& field_type) {
 
 //-------------------------------------------------------------------------------
 
-CLeaderBuilder::CLeaderBuilder() : unit(0) {}
+CLeaderBuilder::CLeaderBuilder() {}
 CLeader* CLeaderBuilder::getLeader() {
 	return unit;
 }

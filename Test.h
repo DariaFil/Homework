@@ -9,7 +9,7 @@ void testHI() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Forest");
+	h.race_protection_bonus(FOREST);
 	h.print_state();
 	if (h.x == 1)
 		cout << "HI X done" << endl;
@@ -38,7 +38,7 @@ void testHA() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Forest");
+	h.race_protection_bonus(FOREST);
 	h.print_state();
 	if (h.x == 1)
 		cout << "HA X done" << endl;
@@ -67,7 +67,7 @@ void testHH() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Forest");
+	h.race_protection_bonus(FOREST);
 	h.print_state();
 	if (h.x == 1)
 		cout << "HH X done" << endl;
@@ -96,7 +96,7 @@ void testHB() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Forest");
+	h.race_protection_bonus(FOREST);
 	h.print_state();
 	if (h.x == 1)
 		cout << "HB X done" << endl;
@@ -125,7 +125,7 @@ void testLI() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Water");
+	h.race_protection_bonus(WATER);
 	h.print_state();
 	if (h.x == 1)
 		cout << "LI X done" << endl;
@@ -154,7 +154,7 @@ void testLA() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Water");
+	h.race_protection_bonus(WATER);
 	h.print_state();
 	if (h.x == 1)
 		cout << "LA X done" << endl;
@@ -183,7 +183,7 @@ void testLH() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Water");
+	h.race_protection_bonus(WATER);
 	h.print_state();
 	if (h.x == 1)
 		cout << "LH X done" << endl;
@@ -212,7 +212,7 @@ void testLB() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Water");
+	h.race_protection_bonus(WATER);
 	h.print_state();
 	if (h.x == 1)
 		cout << "LB X done" << endl;
@@ -241,7 +241,7 @@ void testBI() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Field");
+	h.race_protection_bonus(FIELD);
 	h.print_state();
 	if (h.x == 1)
 		cout << "BI X done" << endl;
@@ -270,7 +270,7 @@ void testBA() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Field");
+	h.race_protection_bonus(FIELD);
 	h.print_state();
 	if (h.x == 1)
 		cout << "BA X done" << endl;
@@ -299,7 +299,7 @@ void testBH() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Field");
+	h.race_protection_bonus(FIELD);
 	h.print_state();
 	if (h.x == 1)
 		cout << "BH X done" << endl;
@@ -328,7 +328,7 @@ void testBB() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Field");
+	h.race_protection_bonus(FIELD);
 	h.print_state();
 	if (h.x == 1)
 		cout << "BB X done" << endl;
@@ -362,8 +362,8 @@ void testLeader() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.info();
 	h.print_state();
-	h.race_protection_bonus("Forest");
-	h.ability_attack_bonus("Field");
+	h.race_protection_bonus(FOREST);
+	h.ability_attack_bonus(FIELD);
 	h.print_state();
 	if (h.x == 1)
 		cout << "Leader X done" << endl;
