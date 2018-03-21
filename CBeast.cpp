@@ -1,7 +1,8 @@
 #include "CBeast.h"
 
-void CBeastInfantryman::info() const {
+string CBeastInfantryman::info() const {
 	cout << "Beast Infantryman" << endl;
+	return "Beast Infantryman";
 }
 void CBeastInfantryman::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FIELD && !InField) {
@@ -17,8 +18,9 @@ string CBeastInfantryman::return_name() const {
 	return "BI";
 }
 
-void CBeastArcher::info() const {
+string CBeastArcher::info() const {
 	cout << "Beast Archer" << endl;
+	return "Beast Archer";
 }
 void CBeastArcher::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FIELD && !InField) {
@@ -34,8 +36,9 @@ string CBeastArcher::return_name() const {
 	return "BA";
 }
 
-void CBeastHorseman::info() const {
+string CBeastHorseman::info() const {
 	cout << "Beast Horseman" << endl;
+	return "Beast Horseman";
 }
 void CBeastHorseman::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FIELD && !InField) {
@@ -51,8 +54,9 @@ string CBeastHorseman::return_name() const {
 	return "BH";
 }
 
-void CBeastBerserk::info() const {
+string CBeastBerserk::info() const {
 	cout << "Beast Berserk" << endl;
+	return "Beast Berserk";
 }
 void CBeastBerserk::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FIELD && !InField) {

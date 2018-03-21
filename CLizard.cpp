@@ -1,7 +1,8 @@
 #include "CLizard.h"
 
-void CLizardInfantryman::info() const {
+string CLizardInfantryman::info() const {
 	cout << "Lizard Infantryman" << endl;
+	return "Lizard Infantryman";
 }
 void CLizardInfantryman::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == WATER && !InField) {
@@ -17,8 +18,9 @@ string CLizardInfantryman::return_name() const {
 	return "LI";
 }
 
-void CLizardArcher::info() const {
+string CLizardArcher::info() const {
 	cout << "Lizard Archer" << endl;
+	return "Lizard Archer";
 }
 void CLizardArcher::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == WATER && !InField) {
@@ -34,8 +36,9 @@ string CLizardArcher::return_name() const {
 	return "LA";
 }
 
-void CLizardHorseman::info() const {
+string CLizardHorseman::info() const {
 	cout << "Lizard Horseman" << endl;
+	return "Lizard Horseman";
 }
 void CLizardHorseman::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == WATER && !InField) {
@@ -51,8 +54,9 @@ string CLizardHorseman::return_name() const {
 	return "LH";
 }
 
-void CLizardBerserk::info() const {
+string CLizardBerserk::info() const {
 	cout << "Lizard Berserk" << endl;
+	return"Lizard Berserk";
 }
 void CLizardBerserk::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == WATER && !InField) {

@@ -1,7 +1,8 @@
 #include "CHuman.h"
 
-void CHumanInfantryman::info() const {
+string CHumanInfantryman::info() const {
 	cout << "Human Infantryman" << endl;
+	return "Human Infantryman";
 }
 void CHumanInfantryman::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FOREST && !InField) {
@@ -17,8 +18,9 @@ string CHumanInfantryman::return_name() const {
 	return "HI";
 }
 
-void CHumanArcher::info() const {
+string CHumanArcher::info() const {
 	cout << "Human Archer" << endl;
+	return "Human Archer";
 }
 void CHumanArcher::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FOREST && !InField) {
@@ -34,8 +36,9 @@ string CHumanArcher::return_name() const {
 	return "HA";
 }
 
-void CHumanHorseman::info() const {
+string CHumanHorseman::info() const {
 	cout << "Human Horseman" << endl;
+	return "Human Horseman";
 }
 void CHumanHorseman::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FOREST && !InField) {
@@ -51,8 +54,9 @@ string CHumanHorseman::return_name() const {
 	return "HH";
 }
 
-void CHumanBerserk::info() const {
+string CHumanBerserk::info() const {
 	cout << "Human Berserk" << endl;
+	return "Human Berserk";
 }
 void CHumanBerserk::race_protection_bonus(const FieldType& field_type) {
 	if (field_type == FOREST && !InField) {
