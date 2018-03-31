@@ -3,8 +3,6 @@
 
 #include"CUnit.h"
 
-using namespace std;
-
 class CInfantryman : public CUnit {
 public:
 	void createUnit(int side, int number);

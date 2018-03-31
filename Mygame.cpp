@@ -1,4 +1,5 @@
 #include "CGame.h"
+#include "Test.h"
 
 bool isParam(string line) {
 	char* p;
@@ -14,7 +15,6 @@ bool right_cin(string data, int min_param, int max_param) {
 }
 
 int main() {
-
 	CGame game;
 	string size1 = "0";
 	string size2 = "0";

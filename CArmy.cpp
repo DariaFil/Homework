@@ -14,3 +14,13 @@ void CArmy::army_state() const {
 		army_vector[i]->print_state();
 	}
 }
+
+void CArmy::push_unit(CUnit* unit) {
+	army_vector.push_back(unit);
+}
+CUnit* CArmy::return_unit(int num) const {
+	return army_vector[num];
+}
+int CArmy::return_size() const {
+	return(army_vector.size());
+}

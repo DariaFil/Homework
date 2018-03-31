@@ -3,8 +3,6 @@
 
 #include "CVarriors.h"
 
-using namespace std;
-
 class CArmyFactory {
 public:
 	virtual CInfantryman* createInfantryman(int side, int number) = 0;

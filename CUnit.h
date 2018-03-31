@@ -6,7 +6,11 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+using std::string;
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
@@ -22,7 +26,7 @@ public:
 
 	void set_position(int player, int number, int n, int m);
 
-	virtual string return_name() const = 0;
+	virtual std::string return_name() const = 0;
 	~CUnit();
 	int x;
 	int y;

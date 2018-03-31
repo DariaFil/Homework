@@ -6,7 +6,11 @@
 #include <vector>
 #include <algorithm>
 
-using namespace std;
+using std::string;
+using std::vector;
+using std::cin;
+using std::cout;
+using std::endl;
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
@@ -19,9 +23,9 @@ public:
 	CBattleField(int n, int m);
 	~CBattleField();
 	void print_battlefield() const;
-	void set_position(int i, int j, const string& data);
+	void set_position(int i, int j, const std::string& data);
 
-	vector<vector<pair<FieldType, string>>> BF;
+	std::vector<std::vector<std::pair<FieldType, std::string>>> BF;
 };
 
 #endif
