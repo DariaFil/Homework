@@ -6,23 +6,21 @@
 #include <vector>
 #include <algorithm>
 
-using std::string;
-using std::vector;
-using std::cin;
-using std::cout;
-using std::endl;
+#include "IObject.h"
+#include "IPrinter.h"
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
 enum FieldType { FIELD = 0, FOREST, WATER };
 #endif
 
-class CUnit {
+class CUnit : public IObject {
 public:
 	virtual void createUnit(int side, int number) = 0;
 	virtual string info() const = 0;
 	virtual void race_protection_bonus(const FieldType& field_type) = 0;
-	vector<int> print_state() const;
+	vector<int> return_state() const;
+	friend class UnitPrinter;
 
 	void set_position(int player, int number, int n, int m);
 
@@ -43,4 +41,8 @@ protected:
 	int REWARD;
 };
 
+class UnitPrinter : public IPrinter {
+public:
+	void print(IObject* unit) const;
+};
 #endif

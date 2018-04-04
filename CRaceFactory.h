@@ -1,7 +1,7 @@
 #ifndef CRACEFACTORY
 #define CRACEFACTORY
 
-#include "CFactory.h"
+#include "IFactory.h"
 #include "CHuman.h"
 #include "CLizard.h"
 #include "CBeast.h"

@@ -1,17 +1,7 @@
 #include "CUnit.h"
 
-vector<int> CUnit::print_state() const {
+vector<int> CUnit::return_state() const {
 	vector<int> params;
-	cout << "State of unit of " << SIDE << " side number " << NUMBER << ":" << endl;
-	cout << "Health points: " << HP << endl;
-	cout << "Attack speed: " << ATTACK_SPEED << endl;
-	cout << "Attack forse: " << ATTACK_FORSE << endl;
-	cout << "Radius of loss: " << RADIUS << endl;
-	cout << "Speed: " << SPEED << endl;
-	cout << "Protection: " << PROTECTION << endl;
-	cout << "Reward: " << REWARD << endl;
-	cout << "Position:" << y << " " << x << endl;
-	cout << endl;
 	params.push_back(SIDE);
 	params.push_back(NUMBER);
 	params.push_back(HP);
@@ -35,3 +25,17 @@ void CUnit::set_position(int player, int number, int n, int m) {
 		}
 	}
 CUnit::~CUnit() {}
+
+void UnitPrinter::print(IObject* unit) const {
+	CUnit* u = dynamic_cast<CUnit*>(unit);
+	cout << "State of unit of " << u->SIDE << " side number " << u->NUMBER << ":" << endl;
+	cout << "Health points: " << u->HP << endl;
+	cout << "Attack speed: " << u->ATTACK_SPEED << endl;
+	cout << "Attack forse: " << u->ATTACK_FORSE << endl;
+	cout << "Radius of loss: " << u->RADIUS << endl;
+	cout << "Speed: " << u->SPEED << endl;
+	cout << "Protection: " << u->PROTECTION << endl;
+	cout << "Reward: " << u->REWARD << endl;
+	cout << "Position:" << u->y << " " << u->x << endl;
+	cout << endl;
+}

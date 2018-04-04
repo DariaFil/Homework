@@ -5,7 +5,6 @@ CGame::CGame() {
 }
 void CGame::createBattleField(int n, int m) {
 	bfield = new CBattleField(n, m);
-	bfield->print_battlefield();
 }
 
 void CGame::createInf(CArmy* p, int amount, int side, CArmyFactory* factory, int& army_count) {
@@ -65,9 +64,9 @@ void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 	createArc(p, arc, side, factory, army_count);
 	createHor(p, hm, side, factory, army_count);
 	createBer(p, ber, side, factory, army_count);
-	p->army_state();
-	bfield->print_battlefield();
 	Player_army[side - 1] = p;
+	BattlefieldPrinter fp;
+	fp.print(bfield);
 	delete factory;
 }
 

@@ -9,7 +9,7 @@ void testHI() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
 	if (s == "Human Infantryman")
 		cout << "HI info done" << endl;
@@ -46,7 +46,7 @@ void testHA() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
 	if (s == "Human Archer")
 		cout << "HA info done" << endl;
@@ -83,7 +83,7 @@ void testHH() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
 	if (s == "Human Horseman")
 		cout << "HH info done" << endl;
@@ -120,7 +120,7 @@ void testHB() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
 	if (s == "Human Berserk")
 		cout << "HB info done" << endl;
@@ -157,7 +157,7 @@ void testLI() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(WATER);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
 	if (s == "Lizard Infantryman")
 		cout << "LI info done" << endl;
@@ -194,7 +194,7 @@ void testLA() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(WATER);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
 	if (s == "Lizard Archer")
 		cout << "LA info done" << endl;
@@ -231,7 +231,7 @@ void testLH() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(WATER);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
 	if (s == "Lizard Horseman")
 		cout << "LH info done" << endl;
@@ -268,7 +268,7 @@ void testLB() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(WATER);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
 	if (s == "Lizard Berserk")
 		cout << "LB info done" << endl;
@@ -305,7 +305,7 @@ void testBI() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
 	if (s == "Beast Infantryman")
 		cout << "BI info done" << endl;
@@ -342,7 +342,7 @@ void testBA() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
 	if (s == "Beast Archer")
 		cout << "BA info done" << endl;
@@ -379,7 +379,7 @@ void testBH() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
 	if (s == "Beast Horseman")
 		cout << "BH info done" << endl;
@@ -416,7 +416,7 @@ void testBB() {
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FIELD);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
 	if (s == "Beast Berserk")
 		cout << "BB info done" << endl;
@@ -459,7 +459,7 @@ void testLeader() {
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
 	h.ability_attack_bonus(FIELD);
-	vector<int> p = h.print_state();
+	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 100, 30, 40, 3, 4, 70, 80 };
 	if (s == "Your leader of human race has running ability, is armred with sword and light armor and rides the horse")
 		cout << "Leader info done" << endl;
@@ -495,7 +495,7 @@ void testLeaderBuilder() {
 	CArmyLeaderBuilder l_builder;
 	CLeader* main_unit = dir.ConstructLeader(l_builder, 1);
 	main_unit->info();
-	main_unit->print_state();
+	main_unit->return_state();
 	delete main_unit;
 }
 void testBattlefield() {
@@ -505,7 +505,6 @@ void testBattlefield() {
 		cout << "Battlefield Position done" << endl;
 	else
 		cout << "Battlefield Position failure" << endl;
-	b.print_battlefield();
 }
 void testGame() {
 	CGame g;

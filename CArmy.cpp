@@ -7,14 +7,6 @@ CArmy::~CArmy() {
 		delete army_vector[i];
 }
 
-void CArmy::army_state() const {
-	int i;
-	for (i = 0; i < army_vector.size(); ++i) {
-		army_vector[i]->info();
-		army_vector[i]->print_state();
-	}
-}
-
 void CArmy::push_unit(CUnit* unit) {
 	army_vector.push_back(unit);
 }
@@ -23,4 +15,14 @@ CUnit* CArmy::return_unit(int num) const {
 }
 int CArmy::return_size() const {
 	return(army_vector.size());
+}
+
+void ArmyPrinter::print(IObject* army) const {
+	CArmy* a = dynamic_cast<CArmy*>(army);
+	int i;
+	UnitPrinter printer;
+	for (i = 0; i < a->army_vector.size(); ++i) {
+		a->army_vector[i]->info();
+		printer.print(a->army_vector[i]);
+	}
 }
