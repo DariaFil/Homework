@@ -63,5 +63,20 @@ int main() {
 		}
 		game.createArmy(stoi(i), stoi(a), stoi(h), stoi(b), p + 1);
 	}
+	
+	bool stop_game = false;
+	int side = 0;
+	string ans = "";
+	cout << "Continue? Yes, No" << endl;
+	cin >> ans;
+	while (ans != "No") {
+		cout << "Player " << side + 1 << " step" << endl;
+		game.player_step(side, (game.choose_unit(side)));
+		cout << "Continue?" << endl;
+		cin >> ans;
+
+		//changing of player
+		side = (side + 1) % 2;
+	}
 	return 0;
 }

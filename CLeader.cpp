@@ -76,6 +76,20 @@ void CLeader::set_mount(const MountType& m_mount) {
 		REWARD += 30;
 	}
 }
+void CLeader::set_InField(const FieldType field) {
+	if (field == FOREST && race == HUMAN)
+		InField = true;
+	else if (field != FOREST && race == HUMAN)
+		InField = false;
+	if (field == FIELD && race == BEAST)
+		InField = true;
+	else if (field != FIELD && race == BEAST)
+		InField = false;
+	if (field == WATER && race == LIZARD)
+		InField = true;
+	else if (field != WATER && race == LIZARD)
+		InField = false;
+}
 
 RaceType CLeader::get_race() const {
 	return race;

@@ -9,8 +9,10 @@
 #include "IObject.h"
 #include "IPrinter.h"
 
+
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
+enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
 enum FieldType { FIELD = 0, FOREST, WATER };
 #endif
 
@@ -21,6 +23,7 @@ public:
 	~CBattleField();
 	friend class BattlefieldPrinter;
 	void set_position(int i, int j, const std::string& data);
+	bool correct_direction(int x, int y, Direction dir) const;
 
 	std::vector<std::vector<std::pair<FieldType, std::string>>> BF;
 };

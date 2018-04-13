@@ -1,16 +1,12 @@
 #ifndef CUNIT
 #define CUNIT
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-
 #include "IObject.h"
 #include "IPrinter.h"
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
+enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
 enum FieldType { FIELD = 0, FOREST, WATER };
 #endif
 
@@ -23,6 +19,10 @@ public:
 	friend class UnitPrinter;
 
 	void set_position(int player, int number, int n, int m);
+	virtual void set_InField(const FieldType field) = 0;
+
+	void step(Direction direction);
+	//void punch(CUnit* enemy);
 
 	virtual std::string return_name() const = 0;
 	~CUnit();

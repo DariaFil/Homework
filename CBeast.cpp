@@ -17,6 +17,12 @@ void CBeastInfantryman::race_protection_bonus(const FieldType& field_type) {
 string CBeastInfantryman::return_name() const {
 	return "BI";
 }
+void CBeastInfantryman::set_InField(const FieldType field) {
+	if (field == FIELD)
+		InField = true;
+	else
+		InField = false;
+}
 
 string CBeastArcher::info() const {
 	cout << "Beast Archer" << endl;
@@ -34,6 +40,12 @@ void CBeastArcher::race_protection_bonus(const FieldType& field_type) {
 }
 string CBeastArcher::return_name() const {
 	return "BA";
+}
+void CBeastArcher::set_InField(const FieldType field) {
+	if (field == FIELD)
+		InField = true;
+	else
+		InField = false;
 }
 
 string CBeastHorseman::info() const {
@@ -53,6 +65,12 @@ void CBeastHorseman::race_protection_bonus(const FieldType& field_type) {
 string CBeastHorseman::return_name() const {
 	return "BH";
 }
+void CBeastHorseman::set_InField(const FieldType field) {
+	if (field == FIELD)
+		InField = true;
+	else
+		InField = false;
+}
 
 string CBeastBerserk::info() const {
 	cout << "Beast Berserk" << endl;
@@ -70,4 +88,10 @@ void CBeastBerserk::race_protection_bonus(const FieldType& field_type) {
 }
 string CBeastBerserk::return_name() const {
 	return "BB";
+}
+void CBeastBerserk::set_InField(const FieldType field) {
+	if (field == FIELD)
+		InField = true;
+	else
+		InField = false;
 }

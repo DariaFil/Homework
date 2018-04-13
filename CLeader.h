@@ -23,6 +23,7 @@ public:
 	void set_weapon(const WeaponType& m_weapon);
 	void set_armor(const ArmorType& m_armor);
 	void set_mount(const MountType& m_mount);
+	void set_InField(const FieldType field);
 
 	RaceType get_race() const;
 

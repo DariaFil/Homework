@@ -17,6 +17,12 @@ void CHumanInfantryman::race_protection_bonus(const FieldType& field_type) {
 string CHumanInfantryman::return_name() const {
 	return "HI";
 }
+void CHumanInfantryman::set_InField(const FieldType field) {
+	if (field == FOREST)
+		InField = true;
+	else
+		InField = false;
+}
 
 string CHumanArcher::info() const {
 	cout << "Human Archer" << endl;
@@ -34,6 +40,12 @@ void CHumanArcher::race_protection_bonus(const FieldType& field_type) {
 }
 string CHumanArcher::return_name() const {
 	return "HA";
+}
+void CHumanArcher::set_InField(const FieldType field) {
+	if (field == FOREST)
+		InField = true;
+	else
+		InField = false;
 }
 
 string CHumanHorseman::info() const {
@@ -53,6 +65,12 @@ void CHumanHorseman::race_protection_bonus(const FieldType& field_type) {
 string CHumanHorseman::return_name() const {
 	return "HH";
 }
+void CHumanHorseman::set_InField(const FieldType field) {
+	if (field == FOREST)
+		InField = true;
+	else
+		InField = false;
+}
 
 string CHumanBerserk::info() const {
 	cout << "Human Berserk" << endl;
@@ -70,4 +88,10 @@ void CHumanBerserk::race_protection_bonus(const FieldType& field_type) {
 }
 string CHumanBerserk::return_name() const {
 	return "HB";
+}
+void CHumanBerserk::set_InField(const FieldType field) {
+	if (field == FOREST)
+		InField = true;
+	else
+		InField = false;
 }

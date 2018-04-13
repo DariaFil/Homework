@@ -39,3 +39,20 @@ void UnitPrinter::print(IObject* unit) const {
 	cout << "Position:" << u->y << " " << u->x << endl;
 	cout << endl;
 }
+
+void CUnit::step(Direction direction) {
+	switch(direction) {
+	case UP:
+		y -= 1;
+		break;
+	case DOWN:
+		y += 1;
+		break;
+	case LEFT:
+		x -= 1;
+		break;
+	case RIGHT:
+		x += 1;
+		break;
+	}
+}

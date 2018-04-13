@@ -17,6 +17,8 @@ public:
 	void createBer(CArmy* p, int amount, int side, CArmyFactory* factory, int& army_count);
 	void createArmy(int inf, int arc, int hm, int ber, int side);
 
+	CUnit* choose_unit(int side);
+	void player_step(int side, CUnit* current_unit);
 private:
 	std::vector<CArmy*> Player_army;
 	CBattleField* bfield;

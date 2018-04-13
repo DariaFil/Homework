@@ -1,5 +1,17 @@
 #include "CGame.h"
 
+Direction ToDir(string dir) {
+	if (dir == "Up")
+		return UP;
+	else if (dir == "Down")
+		return DOWN;
+	else if (dir == "Left")
+		return LEFT;
+	else if (dir == "Right")
+		return RIGHT;
+	else return WRONG;
+}
+
 CGame::CGame() {
 	Player_army.resize(2);
 }
@@ -68,6 +80,67 @@ void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 	BattlefieldPrinter fp;
 	fp.print(bfield);
 	delete factory;
+}
+
+CUnit* CGame::choose_unit(int side) {
+	int chosen_num = -1;
+	cout << "Choose unit:" << endl;
+	set<int> alive_units;
+	for (int i = 0; i < Player_army[side]->return_size(); ++i) {
+		CUnit* cur_unit = Player_army[side]->return_unit(i);
+		if (cur_unit->return_state()[2] > 0) { // 3 элемент списка показателей - здоровье
+			cout << cur_unit->NUMBER << " " << cur_unit->return_name() << " " << cur_unit->x << " " << cur_unit->y << endl;
+			alive_units.insert(cur_unit->NUMBER);
+		}
+	}
+	while (alive_units.find(chosen_num) == alive_units.end()) {
+		cin >> chosen_num;
+	}
+	return Player_army[side]->return_unit(chosen_num);
+}
+
+void CGame::player_step(int side, CUnit* current_unit) {
+	//make 'for' to unit's current speed
+	string dir = "";
+	int steps = current_unit->return_state()[6]; // 7-ой элемент списка показателей - скорость
+	cout << "You have " << steps << " steps" << endl;
+	int counter = 0;
+	int first_x = current_unit->x;
+	int first_y = current_unit->y;
+	while (dir != "Stop" && counter < steps) {
+		//check if direction is correct
+		bool cor_step = false;
+		while (!cor_step && dir != "Stop") {
+			cout << "Set a direction for step: Up, Down, Left, Right, Stop" << endl;
+			cin >> dir;
+			if (dir.size() < 6 && ToDir(dir) != WRONG)
+				cor_step = bfield->correct_direction(current_unit->x, current_unit->y, ToDir(dir));
+		}
+		//make unit step
+		string controle_dir = dir; // controle_dir нужен для того, чтобы без введения пользователем Stop остановиться после максимального количества шагов и выполнить поведение при шаге и остановке одновременно
+		if (counter == steps - 1)
+			controle_dir = "Stop";
+		if (dir != "Stop") {
+			current_unit->step(ToDir(dir));
+			++counter;
+			cout << current_unit->return_name() << " made step to " << current_unit->x << " " << current_unit->y << endl;
+		}
+		if (controle_dir == "Stop") {
+			//update unit state after stopping
+			string name = current_unit->return_name();
+			FieldType cur_field = bfield->BF[current_unit->y][current_unit->x].first;
+			current_unit->set_InField(cur_field);
+			if (name == "HL" || name == "LL" || name == "BL") {
+				CLeader* current_leader = dynamic_cast<CLeader*>(current_unit);
+				current_leader->ability_attack_bonus(cur_field);
+			}
+			current_unit->race_protection_bonus(cur_field);
+			bfield->set_position(first_x, first_y, "");
+			bfield->set_position(current_unit->x, current_unit->y, name);
+		}
+	}
+	BattlefieldPrinter fp;
+	fp.print(bfield);
 }
 
 CGame::~CGame() {
