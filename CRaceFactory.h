@@ -29,4 +29,17 @@ public:
 	CHorseman* createHorseman(int side, int number);
 	CBerserk* createBerserk(int side, int number);
 };
+
+class CRevivalFactory : public CArmyFactory {
+public:
+	CRevivalFactory(CArmyFactory* fact, int sum);
+	CInfantryman* createInfantryman(int side, int number);
+	CArcher* createArcher(int side, int number);
+	CHorseman* createHorseman(int side, int number);
+	CBerserk* createBerserk(int side, int number);
+	int update_sum();
+private:
+	CArmyFactory* factory;
+	int player_sum;
+};
 #endif
