@@ -1,5 +1,17 @@
 #include "CGame.h"
 
+enum VarriorType { INFANTRYMAN = 0, ARCHER, HORSEMAN, BERSERK, WRONGTYPE };
+VarriorType ToVarrior(string varr) {
+	if (varr == "Infantryman")
+		return INFANTRYMAN;
+	else if (varr == "Archer")
+		return ARCHER;
+	else if (varr == "Horseman")
+		return HORSEMAN;
+	else if (varr == "Berserk")
+		return BERSERK;
+	else return WRONGTYPE;
+}
 Direction ToDir(string dir) {
 	if (dir == "Up")
 		return UP;
@@ -54,6 +66,7 @@ void CGame::createBer(CArmy* p, int amount, int side, CArmyFactory* factory, int
 
 void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 	CArmy* p = new CArmy;
+	varriors_number = inf + arc + hm + ber;
 
 	CDirector dir;
 	CArmyLeaderBuilder l_builder;
@@ -88,7 +101,7 @@ CUnit* CGame::choose_unit(int side) {
 	set<int> alive_units;
 	for (int i = 0; i < Player_army[side]->return_size(); ++i) {
 		CUnit* cur_unit = Player_army[side]->return_unit(i);
-		if (cur_unit->return_state()[2] > 0) { // 3 элемент списка показателей - здоровье
+		if (cur_unit->return_state()[2] > 0) {
 			cout << cur_unit->NUMBER << " " << cur_unit->return_name() << " " << cur_unit->x << " " << cur_unit->y << endl;
 			alive_units.insert(cur_unit->NUMBER);
 		}
@@ -102,7 +115,7 @@ CUnit* CGame::choose_unit(int side) {
 void CGame::player_step(int side, CUnit* current_unit) {
 	//make 'for' to unit's current speed
 	string dir = "";
-	int steps = current_unit->return_state()[6]; // 7-ой элемент списка показателей - скорость
+	int steps = current_unit->return_state()[6];
 	cout << "You have " << steps << " steps" << endl;
 	int counter = 0;
 	int first_x = current_unit->x;
@@ -117,7 +130,7 @@ void CGame::player_step(int side, CUnit* current_unit) {
 				cor_step = bfield->correct_direction(current_unit->x, current_unit->y, ToDir(dir));
 		}
 		//make unit step
-		string controle_dir = dir; // controle_dir нужен дл€ того, чтобы без введени€ пользователем Stop остановитьс€ после максимального количества шагов и выполнить поведение при шаге и остановке одновременно
+		string controle_dir = dir;
 		if (counter == steps - 1)
 			controle_dir = "Stop";
 		if (dir != "Stop") {
@@ -141,6 +154,90 @@ void CGame::player_step(int side, CUnit* current_unit) {
 	}
 	BattlefieldPrinter fp;
 	fp.print(bfield);
+}
+
+void CGame::choose_unit_to_buy(int side, int sum) {
+	if (sum == 0) {
+		cout << "Ќедостаточно средств" << endl;
+		return;
+	} else {
+		RaceType race = Player_army[side]->return_race;
+		CArmyFactory* factory;
+		switch (race) {
+		case HUMAN:
+			factory = new CHumanArmyFactory;
+			break;
+		case LIZARD:
+			factory = new CLizardArmyFactory;
+			break;
+		case BEAST:
+			factory = new CBeastArmyFactory;
+			break;
+		}
+		cout << "Your reward: " << sum << endl;
+		string type = "";
+		while (ToVarrior(type) == WRONGTYPE) {
+			cout << "Choose type of unit to buy: Infantryman, Archer, Horseman, Berserk" << endl;
+			cin >> type;
+		}
+		VarriorType vtype = ToVarrior(type);
+		reviveUnit(Player_army[side], side, sum, vtype, factory);
+		delete factory;
+	}
+}
+void CGame::reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFactory* factory) {
+	CRevivalFactory revFact(factory, sum);
+	CUnit* unit;
+	switch (type) {
+	case INFANTRYMAN:
+		if (sum < 20) {
+			cout << "Ќедостаточно средств" << endl;
+			return;
+		}
+		else
+			unit = revFact.createInfantryman(side, varriors_number + 1);
+		break;
+	case ARCHER:
+		if (sum < 10) {
+			cout << "Ќедостаточно средств" << endl;
+			return;
+		}
+		else
+			unit = revFact.createArcher(side, varriors_number + 1);
+		break;
+	case HORSEMAN:
+		if (sum < 30) {
+			cout << "Ќедостаточно средств" << endl;
+			return;
+		}
+		else
+			unit = revFact.createHorseman(side, varriors_number + 1);
+		break;
+	case BERSERK:
+		if (sum < 30) {
+			cout << "Ќедостаточно средств" << endl;
+			return;
+		}
+		else
+			unit = revFact.createBerserk(side, varriors_number + 1);
+		break;
+	}
+	army->push_unit(unit);
+	++varriors_number;
+	int player_side = 0;
+	if (side == 2)
+		player_side = bfield->BF.size() - 1;
+	int i = 0;
+	while (bfield->BF[player_side][varriors_number + i].second != "") {
+		if (i < bfield->BF.size())
+			++i;
+		else {
+			i = 0;
+			++player_side;
+		}
+	}
+	army->return_unit(army->return_size() - 1)->set_position(0, 0, player_side, i);
+	bfield->set_position(i, player_side, army->return_unit(army->return_size() - 1)->return_name());
 }
 
 CGame::~CGame() {

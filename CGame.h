@@ -19,8 +19,11 @@ public:
 
 	CUnit* choose_unit(int side);
 	void player_step(int side, CUnit* current_unit);
+	void choose_unit_to_buy(int side, int sum);
+	void reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFactory* factory);
 private:
 	std::vector<CArmy*> Player_army;
+	int varriors_number;
 	CBattleField* bfield;
 };
 
