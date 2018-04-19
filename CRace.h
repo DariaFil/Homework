@@ -34,27 +34,27 @@ public:
 
 class BeastRace : public IRace {
 public:
+	BeastRace() { race_type = BEAST; }
 	int add_protection_bonus(const FieldType& field, bool in_field);
 	string race_info();
 	string return_race_name() const;
 	bool set_race_InField(const FieldType field);
-	RaceType race_type = BEAST;
 };
 
 class HumanRace : public IRace {
 public:
+	HumanRace() { race_type = HUMAN; }
 	int add_protection_bonus(const FieldType& field, bool in_field);
 	string race_info();
 	string return_race_name() const;
 	bool set_race_InField(const FieldType field);
-	RaceType race_type = HUMAN;
 };
 
 class LizardRace : public IRace {
 public:
+	LizardRace() { race_type = LIZARD; }
 	int add_protection_bonus(const FieldType& field, bool in_field);
 	string race_info();
 	string return_race_name() const;
 	bool set_race_InField(const FieldType field);
-	RaceType race_type = LIZARD;
 };

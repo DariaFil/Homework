@@ -35,22 +35,22 @@ CRevivalFactory::CRevivalFactory(CArmyFactory* fact, int sum) {
 }
 CInfantryman* CRevivalFactory::createInfantryman(int side, int number) {
 	CInfantryman* I = factory->createInfantryman(side, number);
-	player_sum -= I->return_state[8];
+	player_sum -= I->return_state()[8];
 	return I;
 }
 CArcher* CRevivalFactory::createArcher(int side, int number) {
 	CArcher* A = factory->createArcher(side, number);
-	player_sum -= A->return_state[8];
+	player_sum -= A->return_state()[8];
 	return A;
 }
 CHorseman* CRevivalFactory::createHorseman(int side, int number) {
 	CHorseman* H = factory->createHorseman(side, number);
-	player_sum -= H->return_state[8];
+	player_sum -= H->return_state()[8];
 	return H;
 }
 CBerserk* CRevivalFactory::createBerserk(int side, int number) {
 	CBerserk* B = factory->createBerserk(side, number);
-	player_sum -= B->return_state[8];
+	player_sum -= B->return_state()[8];
 	return B;
 }
 int CRevivalFactory::update_sum() {
