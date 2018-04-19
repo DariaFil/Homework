@@ -151,7 +151,7 @@ void CGame::player_step(int side, CUnit* current_unit) {
 
 void CGame::choose_unit_to_buy(int side, int sum) {
 	if (sum == 0) {
-		cout << "Недостаточно средств" << endl;
+		cout << "Not enough money to buy this unit" << endl;
 		return;
 	} else {
 		RaceType race = Player_army[side]->return_race();
@@ -174,7 +174,7 @@ void CGame::reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFa
 	switch (type) {
 	case INFANTRYMAN:
 		if (sum < 20) {
-			cout << "Недостаточно средств" << endl;
+			cout << "Not enough money to buy this unit" << endl;
 			return;
 		}
 		else
@@ -182,7 +182,7 @@ void CGame::reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFa
 		break;
 	case ARCHER:
 		if (sum < 10) {
-			cout << "Недостаточно средств" << endl;
+			cout << "Not enough money to buy this unit" << endl;
 			return;
 		}
 		else
@@ -190,7 +190,7 @@ void CGame::reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFa
 		break;
 	case HORSEMAN:
 		if (sum < 30) {
-			cout << "Недостаточно средств" << endl;
+			cout << "Not enough money to buy this unit" << endl;
 			return;
 		}
 		else
@@ -198,7 +198,7 @@ void CGame::reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFa
 		break;
 	case BERSERK:
 		if (sum < 30) {
-			cout << "Недостаточно средств" << endl;
+			cout << "Not enough money to buy this unit" << endl;
 			return;
 		}
 		else
