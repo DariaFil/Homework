@@ -18,7 +18,7 @@ enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
 
 class CUnit : public IObject {
 public:
-	virtual void createUnit(int side, int number) = 0; // сюда же передавать класс расы
+	virtual void createUnit(int side, int number) = 0;
 	virtual string info() const = 0;
 	void race_protection_bonus(const FieldType& field_type);
 	vector<int> return_state() const;
