@@ -12,8 +12,12 @@
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
-enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
 enum FieldType { FIELD = 0, FOREST, WATER };
+#endif
+
+#ifndef  DIRETOIN_DFINED
+#define DIRETOIN_DFINED
+enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
 #endif
 
 class CBattleField : public IObject {

@@ -14,17 +14,48 @@ vector<int> CUnit::return_state() const {
 	return params;
 }
 
-void CUnit::set_position(int player, int number, int n, int m) {
-		if (player == 1) {
-			y = 0;
-			x = number;
-		}
-		else {
-			y = n - 1;
-			x = m - number - 1;
-		}
+void CUnit::set_race(RaceType _race) {
+	switch (_race) {
+	case HUMAN:
+		race = new HumanRace;
+		break;
+	case LIZARD:
+		race = new LizardRace;
+		break;
+	case BEAST:
+		race = new BeastRace;
+		break;
 	}
-CUnit::~CUnit() {}
+}
+RaceType CUnit::get_race() {
+	return race->race_type;
+}
+void CUnit::set_position(int player, int number, int n, int m) {
+	if (player == 0) {
+		y = n;
+		x = m;
+	}
+	else if (player == 1) {
+		y = 0;
+		x = number;
+	}
+	else {
+		y = n - 1;
+		x = m - number - 1;
+	}
+}
+void CUnit::race_protection_bonus(const FieldType& field_type) {
+	int old_prot = PROTECTION;
+	PROTECTION += race->add_protection_bonus(field_type, InField);
+	if (old_prot != PROTECTION)
+		InField = !InField;
+}
+void CUnit::set_InField(const FieldType field) {
+	InField = race->set_race_InField(field);
+}
+CUnit::~CUnit() {
+	delete race;
+}
 
 void UnitPrinter::print(IObject* unit) const {
 	CUnit* u = dynamic_cast<CUnit*>(unit);

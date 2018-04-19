@@ -2,6 +2,7 @@
 #define CARMY
 
 #include "CUnit.h"
+#include "CLeader.h"
 
 class CArmy : public IObject {
 public:
@@ -11,6 +12,7 @@ public:
 	void push_unit(CUnit* unit);
 	CUnit* return_unit(int num) const;
 	int return_size() const;
+	RaceType return_race() const;
 private:
 	vector<CUnit*> army_vector;
 };

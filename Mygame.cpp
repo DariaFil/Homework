@@ -1,5 +1,4 @@
 #include "CGame.h"
-#include "Test.h"
 
 bool isParam(string line) {
 	char* p;
@@ -64,7 +63,6 @@ int main() {
 		game.createArmy(stoi(i), stoi(a), stoi(h), stoi(b), p + 1);
 	}
 	
-	bool stop_game = false;
 	int side = 0;
 	string ans = "";
 	cout << "Continue? Yes, No" << endl;

@@ -11,6 +11,13 @@ void CInfantryman::createUnit(int side, int number) {
 	SIDE = side;
 	NUMBER = number;
 }
+string CInfantryman::info() const {
+	cout << race->race_info() << " Infantryman" << endl;
+	return race->race_info() + " Infantryman";
+}
+string CInfantryman::return_name() const {
+	return race->return_race_name() + "I";
+}
 
 void CArcher::createUnit(int side, int number) {
 	PROTECTION = 40;
@@ -22,6 +29,13 @@ void CArcher::createUnit(int side, int number) {
 	REWARD = 10;
 	SIDE = side;
 	NUMBER = number;
+}
+string CArcher::info() const {
+	cout << race->race_info() << " Archer" << endl;
+	return race->race_info() + " Archer";
+}
+string CArcher::return_name() const {
+	return race->return_race_name() + "A";
 }
 
 void CHorseman::createUnit(int side, int number) {
@@ -35,6 +49,13 @@ void CHorseman::createUnit(int side, int number) {
 	SIDE = side;
 	NUMBER = number;
 }
+string CHorseman::info() const {
+	cout << race->race_info() << " Horseman" << endl;
+	return race->race_info() + " Horseman";
+}
+string CHorseman::return_name() const {
+	return race->return_race_name() + "H";
+}
 
 void CBerserk::createUnit(int side, int number) {
 	PROTECTION = 40;
@@ -46,4 +67,11 @@ void CBerserk::createUnit(int side, int number) {
 	REWARD = 30;
 	SIDE = side;
 	NUMBER = number;
+}
+string CBerserk::info() const {
+	cout << race->race_info() << " Berserk" << endl;
+	return race->race_info() + " Berserk";
+}
+string CBerserk::return_name() const {
+	return race->return_race_name() + "B";
 }

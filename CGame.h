@@ -1,6 +1,7 @@
 #ifndef CGAME
 #define CGAME
 
+enum VarriorType { INFANTRYMAN = 0, ARCHER, HORSEMAN, BERSERK, WRONGTYPE };
 #include "CArmy.h"
 #include "CBattlefield.h"
 #include "CLeader.h"

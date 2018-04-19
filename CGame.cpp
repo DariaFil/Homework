@@ -1,6 +1,5 @@
 #include "CGame.h"
 
-enum VarriorType { INFANTRYMAN = 0, ARCHER, HORSEMAN, BERSERK, WRONGTYPE };
 VarriorType ToVarrior(string varr) {
 	if (varr == "Infantryman")
 		return INFANTRYMAN;
@@ -76,13 +75,7 @@ void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 	bfield->set_position(main_unit->x, main_unit->y, main_unit->return_name());
 
 	RaceType race = main_unit->get_race();
-	CArmyFactory* factory;
-	if (race == HUMAN)
-		factory = new CHumanArmyFactory;
-	if (race == LIZARD)
-		factory = new CLizardArmyFactory;
-	if (race == BEAST)
-		factory = new CBeastArmyFactory;
+	CArmyFactory* factory = new CArmyFactory(race);
 	p->push_unit(main_unit);
 
 	createInf(p, inf, side, factory, army_count);
@@ -161,19 +154,9 @@ void CGame::choose_unit_to_buy(int side, int sum) {
 		cout << "Недостаточно средств" << endl;
 		return;
 	} else {
-		RaceType race = Player_army[side]->return_race;
-		CArmyFactory* factory;
-		switch (race) {
-		case HUMAN:
-			factory = new CHumanArmyFactory;
-			break;
-		case LIZARD:
-			factory = new CLizardArmyFactory;
-			break;
-		case BEAST:
-			factory = new CBeastArmyFactory;
-			break;
-		}
+		RaceType race = Player_army[side]->return_race();
+		CArmyFactory* factory = new CArmyFactory(race);
+		
 		cout << "Your reward: " << sum << endl;
 		string type = "";
 		while (ToVarrior(type) == WRONGTYPE) {

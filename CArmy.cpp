@@ -16,9 +16,14 @@ CUnit* CArmy::return_unit(int num) const {
 int CArmy::return_size() const {
 	return(army_vector.size());
 }
+RaceType CArmy::return_race() const {
+	CLeader* leader = dynamic_cast<CLeader*>(army_vector[0]);
+	return leader->get_race();
+}
 
 void ArmyPrinter::print(IObject* army) const {
 	CArmy* a = dynamic_cast<CArmy*>(army);
+	cout << a->return_race() << " army" << endl;
 	int i;
 	UnitPrinter printer;
 	for (i = 0; i < a->army_vector.size(); ++i) {

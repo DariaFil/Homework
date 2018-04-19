@@ -1,33 +1,19 @@
-#ifndef CRACEFACTORY
-#define CRACEFACTORY
+#ifndef CFACTORY
+#define CFACTORY
 
-#include "IFactory.h"
-#include "CHuman.h"
-#include "CLizard.h"
-#include "CBeast.h"
+#include "CVarriors.h"
 
-class CHumanArmyFactory : public CArmyFactory {
+class CArmyFactory {
 public:
+	CArmyFactory(RaceType _race);
+	CArmyFactory() {};
 	CInfantryman* createInfantryman(int side, int number);
 	CArcher* createArcher(int side, int number);
 	CHorseman* createHorseman(int side, int number);
 	CBerserk* createBerserk(int side, int number);
-};
-
-class CLizardArmyFactory : public CArmyFactory {
-public:
-	CInfantryman* createInfantryman(int side, int number);
-	CArcher* createArcher(int side, int number);
-	CHorseman* createHorseman(int side, int number);
-	CBerserk* createBerserk(int side, int number);
-};
-
-class CBeastArmyFactory : public CArmyFactory {
-public:
-	CInfantryman* createInfantryman(int side, int number);
-	CArcher* createArcher(int side, int number);
-	CHorseman* createHorseman(int side, int number);
-	CBerserk* createBerserk(int side, int number);
+	virtual ~CArmyFactory() {}
+protected:
+	RaceType race_type;
 };
 
 class CRevivalFactory : public CArmyFactory {

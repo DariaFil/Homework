@@ -3,28 +3,35 @@
 
 #include "IObject.h"
 #include "IPrinter.h"
+#include "CRace.h"
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
-enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
 enum FieldType { FIELD = 0, FOREST, WATER };
 #endif
 
+#ifndef  DIRETOIN_DFINED
+#define DIRETOIN_DFINED
+enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
+#endif
+
+
 class CUnit : public IObject {
 public:
-	virtual void createUnit(int side, int number) = 0;
+	virtual void createUnit(int side, int number) = 0; // сюда же передавать класс расы
 	virtual string info() const = 0;
-	virtual void race_protection_bonus(const FieldType& field_type) = 0;
+	void race_protection_bonus(const FieldType& field_type);
 	vector<int> return_state() const;
+	virtual string return_name() const = 0;
 	friend class UnitPrinter;
 
+	void set_race(RaceType _race);
+	RaceType get_race();
 	void set_position(int player, int number, int n, int m);
-	virtual void set_InField(const FieldType field) = 0;
+	void set_InField(const FieldType field);
 
 	void step(Direction direction);
 	//void punch(CUnit* enemy);
-
-	virtual std::string return_name() const = 0;
 	~CUnit();
 	int x;
 	int y;
@@ -39,6 +46,7 @@ protected:
 	int RADIUS;
 	int SPEED;
 	int REWARD;
+	IRace* race;
 };
 
 class UnitPrinter : public IPrinter {
