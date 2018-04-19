@@ -1,28 +1,37 @@
 #ifndef CUNIT
 #define CUNIT
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
+#include "IObject.h"
+#include "IPrinter.h"
+#include "CRace.h"
 
 #ifndef FIELDTYPE_DEFINED
 #define FIELDTYPE_DEFINED
 enum FieldType { FIELD = 0, FOREST, WATER };
 #endif
 
-class CUnit {
+#ifndef  DIRETOIN_DFINED
+#define DIRETOIN_DFINED
+enum Direction { UP = 0, DOWN, LEFT, RIGHT, WRONG };
+#endif
+
+
+class CUnit : public IObject {
 public:
-	virtual void createUnit(int side, int number) = 0;
+	virtual void createUnit(int side, int number) = 0; // сюда же передавать класс расы
 	virtual string info() const = 0;
-	virtual void race_protection_bonus(const FieldType& field_type) = 0;
-	vector<int> print_state() const;
-
-	void set_position(int player, int number, int n, int m);
-
+	void race_protection_bonus(const FieldType& field_type);
+	vector<int> return_state() const;
 	virtual string return_name() const = 0;
+	friend class UnitPrinter;
+
+	void set_race(RaceType _race);
+	RaceType get_race();
+	void set_position(int player, int number, int n, int m);
+	void set_InField(const FieldType field);
+
+	void step(Direction direction);
+	//void punch(CUnit* enemy);
 	~CUnit();
 	int x;
 	int y;
@@ -37,6 +46,11 @@ protected:
 	int RADIUS;
 	int SPEED;
 	int REWARD;
+	IRace* race;
 };
 
+class UnitPrinter : public IPrinter {
+public:
+	void print(IObject* unit) const;
+};
 #endif

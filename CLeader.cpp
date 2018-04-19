@@ -15,9 +15,6 @@ void CLeader::createUnit(int side, int number) {
 	NUMBER = number;
 }
 
-void CLeader::set_race(const RaceType& m_race) {
-	race = m_race;
-}
 void CLeader::set_ability(const AbilityType& m_abil) {
 	abil = m_abil;
 }
@@ -77,18 +74,10 @@ void CLeader::set_mount(const MountType& m_mount) {
 	}
 }
 
-RaceType CLeader::get_race() const {
-	return race;
-}
 
 string CLeader::info() const {
 	string s = "Your leader of ";
-	if (race == HUMAN)
-		s += "human";
-	else if (race == LIZARD)
-		s += "lizard";
-	else if (race == BEAST)
-		s += "beast";
+	s += race->race_info();
 	s += " race has ";
 	if (abil == RUNNING)
 		s += "running";
@@ -127,12 +116,7 @@ string CLeader::info() const {
 }
 
 string CLeader::return_name() const {
-	if (race == HUMAN)
-		return "HL";
-	else if (race == LIZARD)
-		return "LL";
-	else
-		return "BL";
+	return race->return_race_name() + "L";
 }
 void CLeader::ability_attack_bonus(const FieldType& field_type) {
 	if (field_type == FIELD && abil == RUNNING && !InField) {
@@ -164,32 +148,6 @@ void CLeader::ability_attack_bonus(const FieldType& field_type) {
 	}
 	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && InField) {
 		ATTACK_SPEED += 20;
-	}
-}
-void CLeader::race_protection_bonus(const FieldType& field_type) {
-	if (field_type == FIELD && race == BEAST && !InField) {
-		PROTECTION += 10;
-		InField = true;
-	}
-	if (field_type == FOREST && race == HUMAN && !InField) {
-		PROTECTION += 10;
-		InField = true;
-	}
-	if (field_type == WATER && race == LIZARD && !InField) {
-		PROTECTION += 10;
-		InField = true;
-	}
-	if (field_type != FIELD && race == BEAST && InField) {
-		PROTECTION -= 10;
-		InField = false;
-	}
-	if (field_type != FOREST && race == HUMAN && InField) {
-		PROTECTION -= 10;
-		InField = false;
-	}
-	if (field_type != WATER && race == LIZARD && InField) {
-		PROTECTION -= 10;
-		InField = false;
 	}
 }
 

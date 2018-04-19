@@ -2,13 +2,24 @@
 #define CARMY
 
 #include "CUnit.h"
+#include "CLeader.h"
 
-class CArmy {
+class CArmy : public IObject {
 public:
 	CArmy();
 	~CArmy();
-	void army_state() const;
+	friend class ArmyPrinter;
+	void push_unit(CUnit* unit);
+	CUnit* return_unit(int num) const;
+	int return_size() const;
+	RaceType return_race() const;
+private:
 	vector<CUnit*> army_vector;
+};
+
+class ArmyPrinter : public IPrinter {
+public:
+	void print(IObject* army) const;
 };
 
 #endif
