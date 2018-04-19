@@ -1,9 +1,10 @@
-#include "Test.h"
 #include <gtest/gtest.h>
+#include "CGame.h"
 
-TEST(ProjTest, HItest) {
-	CHumanInfantryman h;
+TEST(ProjTest, Infantryman_test) {
+	CInfantryman h;
 	h.createUnit(1, 1);
+	h.set_race(HUMAN);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
@@ -18,10 +19,11 @@ TEST(ProjTest, HItest) {
 	EXPECT_EQ(h.return_name(), "HI");
 }
 
-TEST(ProjTest, HAtest) {
-	CHumanArcher h;
+TEST(ProjTest, Archer_test) {
+	CArcher h;
 	h.createUnit(1, 1);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
+	h.set_race(HUMAN);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
 	vector<int> p = h.return_state();
@@ -34,9 +36,10 @@ TEST(ProjTest, HAtest) {
 	EXPECT_EQ(h.NUMBER, 1);
 	EXPECT_EQ(h.return_name(), "HA");
 }
-TEST(ProjTest, HHtest) {
-	CHumanHorseman h;
+TEST(ProjTest, Horseman_test) {
+	CHorseman h;
 	h.createUnit(1, 1);
+	h.set_race(HUMAN);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
@@ -50,9 +53,10 @@ TEST(ProjTest, HHtest) {
 	EXPECT_EQ(h.NUMBER, 1);
 	EXPECT_EQ(h.return_name(), "HH");
 }
-TEST(ProjTest, HBtest) {
-	CHumanBerserk h;
+TEST(ProjTest, Berserk_test) {
+	CBerserk h;
 	h.createUnit(1, 1);
+	h.set_race(HUMAN);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	string s = h.info();
 	h.race_protection_bonus(FOREST);
@@ -65,134 +69,6 @@ TEST(ProjTest, HBtest) {
 	EXPECT_EQ(h.SIDE, 1);
 	EXPECT_EQ(h.NUMBER, 1);
 	EXPECT_EQ(h.return_name(), "HB");
-}
-TEST(ProjTest, LItest) {
-	CLizardInfantryman h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(WATER);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
-	EXPECT_EQ(s, "Lizard Infantryman");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "LI");
-}
-TEST(ProjTest, LAtest) {
-	CLizardArcher h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(WATER);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
-	EXPECT_EQ(s, "Lizard Archer");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "LA");
-}
-TEST(ProjTest, LHtest) {
-	CLizardHorseman h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(WATER);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
-	EXPECT_EQ(s, "Lizard Horseman");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "LH");
-}
-TEST(ProjTest, LBtest) {
-	CLizardBerserk h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(WATER);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
-	EXPECT_EQ(s, "Lizard Berserk");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "LB");
-}
-TEST(ProjTest, BItest) {
-	CBeastInfantryman h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(FIELD);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 50, 20, 10, 1, 2, 60, 20 };
-	EXPECT_EQ(s, "Beast Infantryman");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "BI");
-}
-TEST(ProjTest, BAtest) {
-	CBeastArcher h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(FIELD);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 40, 40, 8, 5, 1, 50, 10 };
-	EXPECT_EQ(s, "Beast Archer");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "BA");
-}
-TEST(ProjTest, BHtest) {
-	CBeastHorseman h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(FIELD);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 60, 30, 15, 2, 3, 70, 30 };
-	EXPECT_EQ(s, "Beast Horseman");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "BH");
-}
-TEST(ProjTest, BBtest) {
-	CBeastBerserk h;
-	h.createUnit(1, 1);
-	h.set_position(h.SIDE, h.NUMBER, 1, 1);
-	string s = h.info();
-	h.race_protection_bonus(FIELD);
-	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 90, 25, 15, 2, 2, 50, 30 };
-	EXPECT_EQ(s, "Beast Berserk");
-	EXPECT_EQ(p, ptest);
-	EXPECT_EQ(h.x, 1);
-	EXPECT_EQ(h.y, 0);
-	EXPECT_EQ(h.SIDE, 1);
-	EXPECT_EQ(h.NUMBER, 1);
-	EXPECT_EQ(h.return_name(), "BB");
 }
 TEST(ProjTest, LEADERtest) {
 	CLeader h;
@@ -208,7 +84,7 @@ TEST(ProjTest, LEADERtest) {
 	h.ability_attack_bonus(FIELD);
 	vector<int> p = h.return_state();
 	vector<int> ptest = { 1, 1, 100, 30, 40, 3, 4, 70, 80 };
-	EXPECT_EQ(s, "Your leader of human race has running ability, is armred with sword and light armor and rides the horse");
+	EXPECT_EQ(s, "Your leader of Human race has running ability, is armred with sword and light armor and rides the horse");
 	EXPECT_EQ(p, ptest);
 	EXPECT_EQ(h.x, 1);
 	EXPECT_EQ(h.y, 0);
