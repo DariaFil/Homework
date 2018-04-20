@@ -1,6 +1,90 @@
 #include <gtest/gtest.h>
 #include "CGame.h"
 
+/*void test_race() {
+	HumanRace h;
+	int prot_b1 = h.add_protection_bonus(FOREST, false);
+	int prot_b2 = h.add_protection_bonus(FIELD, true);
+	string info = h.race_info();
+	string symbol = h.return_race_name();
+	if (prot_b1 == 10)
+		cout << "OK1" << endl;
+	if (prot_b2 == -10)
+		cout << "OK2" << endl;
+	if (info == "Human")
+		cout << "OK3" << endl;
+	if (symbol == "H")
+		cout << "OK4" << endl;
+}
+
+void test_step() {
+	CInfantryman h;
+	h.createUnit(1, 1);
+	h.set_race(HUMAN);
+	h.set_position(h.SIDE, h.NUMBER, 1, 1);
+	h.step(DOWN);
+	if (h.y == 1)
+		cout << "OK1" << endl;
+	h.step(UP);
+	if (h.y == 0)
+		cout << "OK2" << endl;
+	h.step(RIGHT);
+	if (h.x == 2)
+		cout << "OK3" << endl;
+	h.step(LEFT);
+	if (h.x == 1)
+		cout << "OK4" << endl;
+}
+
+void test_damage() {
+	CInfantryman i;
+	i.createUnit(1, 1);
+	i.set_race(HUMAN);
+	int dam = i.damage(10, 30);
+	if (dam = 8)
+		cout << "OK1" << endl;
+
+	CArcher a;
+	a.createUnit(1, 1);
+	a.set_race(HUMAN);
+	dam = a.damage(10, 30);
+	if (dam = 9)
+		cout << "OK2" << endl;
+
+	CHorseman h;
+	h.createUnit(1, 1);
+	h.set_race(HUMAN);
+	dam = h.damage(10, 30);
+	if (dam = 7)
+		cout << "OK3" << endl;
+
+	CBerserk b;
+	b.createUnit(1, 1);
+	b.set_race(HUMAN);
+	dam = b.damage(10, 30);
+	if (dam = 8)
+		cout << "OK4" << endl;
+}
+
+void test_dist() {
+	CInfantryman i;
+	i.createUnit(1, 1);
+	i.set_position(i.SIDE, i.NUMBER, 1, 1);
+	i.set_race(HUMAN);
+	int dist = i.dist(2, 4);
+	if (dist == 5)
+		cout << "OK1" << endl;
+	dist = i.dist(0, 0);
+	if (dist == 1)
+		cout << "OK2" << endl;
+	dist = i.dist(20, 21);
+	if (dist == 40)
+		cout << "OK3" << endl;
+	dist = i.dist(42, 3);
+	if (dist == 44)
+		cout << "OK4" << endl;
+}*/
+
 TEST(ProjTest, Infantryman_test) {
 	CInfantryman h;
 	h.createUnit(1, 1);
