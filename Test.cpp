@@ -83,6 +83,70 @@ void test_dist() {
 	dist = i.dist(42, 3);
 	if (dist == 44)
 		cout << "OK4" << endl;
+}
+
+void test_factory() {
+	CArmyFactory* fact = new CArmyFactory(HUMAN);
+	CUnit* inf = fact->createInfantryman(1, 0);
+	CUnit* arc = fact->createArcher(1, 1);
+	CUnit* hor = fact->createHorseman(1, 2);
+	CUnit* ber = fact->createBerserk(1, 3);
+	if (inf->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (inf->return_name() == "HI")
+		cout << "OK 1_2" << endl;
+	if (arc->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (arc->return_name() == "HA")
+		cout << "OK 1_2" << endl;
+	if (hor->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (hor->return_name() == "HH")
+		cout << "OK 1_2" << endl;
+	if (ber->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (ber->return_name() == "HB")
+		cout << "OK 1_2" << endl;
+	delete fact;
+}
+
+void test_revival_factory() {
+	CArmyFactory* fact = new CArmyFactory(HUMAN);
+	CRevivalFactory* rev = new CRevivalFactory(fact, 90);
+	CUnit* inf = rev->createInfantryman(1, 0);
+	int sum1 = rev->update_sum();
+	CUnit* arc = rev->createArcher(1, 1);
+	int sum2 = rev->update_sum();
+	CUnit* hor = rev->createHorseman(1, 2);
+	int sum3 = rev->update_sum();
+	CUnit* ber = rev->createBerserk(1, 3);
+	int sum4 = rev->update_sum();
+	if (inf->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (inf->return_name() == "HI")
+		cout << "OK 1_2" << endl;
+	if (arc->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (arc->return_name() == "HA")
+		cout << "OK 1_2" << endl;
+	if (hor->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (hor->return_name() == "HH")
+		cout << "OK 1_2" << endl;
+	if (ber->get_race() == HUMAN)
+		cout << "OK 1_1" << endl;
+	if (ber->return_name() == "HB")
+		cout << "OK 1_2" << endl;
+	delete fact;
+	if (sum1 == 70)
+		cout << "OK" << endl;
+	if (sum2 == 60)
+		cout << "OK" << endl;
+	if (sum3 == 30)
+		cout << "OK" << endl;
+	if (sum4 == 0)
+		cout << "OK" << endl;
+	delete rev;
 }*/
 
 TEST(ProjTest, Infantryman_test) {
