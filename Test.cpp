@@ -1,153 +1,67 @@
 #include <gtest/gtest.h>
 #include "CGame.h"
 
-/*void test_race() {
+TEST(ProjTest, race_test) {
 	HumanRace h;
 	int prot_b1 = h.add_protection_bonus(FOREST, false);
 	int prot_b2 = h.add_protection_bonus(FIELD, true);
 	string info = h.race_info();
 	string symbol = h.return_race_name();
-	if (prot_b1 == 10)
-		cout << "OK1" << endl;
-	if (prot_b2 == -10)
-		cout << "OK2" << endl;
-	if (info == "Human")
-		cout << "OK3" << endl;
-	if (symbol == "H")
-		cout << "OK4" << endl;
+	EXPECT_EQ(prot_b1, 10);
+	EXPECT_EQ(prot_b2, -10);
+	EXPECT_EQ(info, "Human");
+	EXPECT_EQ(symbol, "H");
 }
-
-void test_step() {
+TEST(ProjTest, step_test) {
 	CInfantryman h;
 	h.createUnit(1, 1);
 	h.set_race(HUMAN);
 	h.set_position(h.SIDE, h.NUMBER, 1, 1);
 	h.step(DOWN);
-	if (h.y == 1)
-		cout << "OK1" << endl;
+	EXPECT_EQ(h.y, 1);
 	h.step(UP);
-	if (h.y == 0)
-		cout << "OK2" << endl;
+	EXPECT_EQ(h.y, 0);
 	h.step(RIGHT);
-	if (h.x == 2)
-		cout << "OK3" << endl;
+	EXPECT_EQ(h.x, 2);
 	h.step(LEFT);
-	if (h.x == 1)
-		cout << "OK4" << endl;
+	EXPECT_EQ(h.x, 1);
 }
-
-void test_damage() {
+TEST(ProjTest, damage_test) {
 	CInfantryman i;
 	i.createUnit(1, 1);
 	i.set_race(HUMAN);
 	int dam = i.damage(10, 30);
-	if (dam = 8)
-		cout << "OK1" << endl;
-
+	EXPECT_EQ(dam, 8);
 	CArcher a;
 	a.createUnit(1, 1);
 	a.set_race(HUMAN);
 	dam = a.damage(10, 30);
-	if (dam = 9)
-		cout << "OK2" << endl;
-
+	EXPECT_EQ(dam, 9);
 	CHorseman h;
 	h.createUnit(1, 1);
 	h.set_race(HUMAN);
 	dam = h.damage(10, 30);
-	if (dam = 7)
-		cout << "OK3" << endl;
-
+	EXPECT_EQ(dam, 7);
 	CBerserk b;
 	b.createUnit(1, 1);
 	b.set_race(HUMAN);
 	dam = b.damage(10, 30);
-	if (dam = 8)
-		cout << "OK4" << endl;
+	EXPECT_EQ(dam, 9);
 }
-
-void test_dist() {
+TEST(ProjTest, dist_test) {
 	CInfantryman i;
 	i.createUnit(1, 1);
 	i.set_position(i.SIDE, i.NUMBER, 1, 1);
 	i.set_race(HUMAN);
 	int dist = i.dist(2, 4);
-	if (dist == 5)
-		cout << "OK1" << endl;
+	EXPECT_EQ(dist, 5);
 	dist = i.dist(0, 0);
-	if (dist == 1)
-		cout << "OK2" << endl;
+	EXPECT_EQ(dist, 1);
 	dist = i.dist(20, 21);
-	if (dist == 40)
-		cout << "OK3" << endl;
+	EXPECT_EQ(dist, 40);
 	dist = i.dist(42, 3);
-	if (dist == 44)
-		cout << "OK4" << endl;
+	EXPECT_EQ(dist, 44);
 }
-
-void test_factory() {
-	CArmyFactory* fact = new CArmyFactory(HUMAN);
-	CUnit* inf = fact->createInfantryman(1, 0);
-	CUnit* arc = fact->createArcher(1, 1);
-	CUnit* hor = fact->createHorseman(1, 2);
-	CUnit* ber = fact->createBerserk(1, 3);
-	if (inf->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (inf->return_name() == "HI")
-		cout << "OK 1_2" << endl;
-	if (arc->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (arc->return_name() == "HA")
-		cout << "OK 1_2" << endl;
-	if (hor->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (hor->return_name() == "HH")
-		cout << "OK 1_2" << endl;
-	if (ber->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (ber->return_name() == "HB")
-		cout << "OK 1_2" << endl;
-	delete fact;
-}
-
-void test_revival_factory() {
-	CArmyFactory* fact = new CArmyFactory(HUMAN);
-	CRevivalFactory* rev = new CRevivalFactory(fact, 90);
-	CUnit* inf = rev->createInfantryman(1, 0);
-	int sum1 = rev->update_sum();
-	CUnit* arc = rev->createArcher(1, 1);
-	int sum2 = rev->update_sum();
-	CUnit* hor = rev->createHorseman(1, 2);
-	int sum3 = rev->update_sum();
-	CUnit* ber = rev->createBerserk(1, 3);
-	int sum4 = rev->update_sum();
-	if (inf->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (inf->return_name() == "HI")
-		cout << "OK 1_2" << endl;
-	if (arc->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (arc->return_name() == "HA")
-		cout << "OK 1_2" << endl;
-	if (hor->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (hor->return_name() == "HH")
-		cout << "OK 1_2" << endl;
-	if (ber->get_race() == HUMAN)
-		cout << "OK 1_1" << endl;
-	if (ber->return_name() == "HB")
-		cout << "OK 1_2" << endl;
-	delete fact;
-	if (sum1 == 70)
-		cout << "OK" << endl;
-	if (sum2 == 60)
-		cout << "OK" << endl;
-	if (sum3 == 30)
-		cout << "OK" << endl;
-	if (sum4 == 0)
-		cout << "OK" << endl;
-	delete rev;
-}*/
 
 TEST(ProjTest, Infantryman_test) {
 	CInfantryman h;
@@ -231,7 +145,7 @@ TEST(ProjTest, LEADERtest) {
 	h.race_protection_bonus(FOREST);
 	h.ability_attack_bonus(FIELD);
 	vector<int> p = h.return_state();
-	vector<int> ptest = { 1, 1, 100, 30, 40, 3, 4, 70, 80 };
+	vector<int> ptest = { 1, 1, 100, 40, 40, 3, 4, 70, 80 };
 	EXPECT_EQ(s, "Your leader of Human race has running ability, is armred with sword and light armor and rides the horse");
 	EXPECT_EQ(p, ptest);
 	EXPECT_EQ(h.x, 1);
@@ -252,6 +166,48 @@ TEST(ProjTest, BATTLEFIELDtest) {
 	CBattleField b(5, 5);
 	b.set_position(1, 2, "HH");
 	EXPECT_EQ(b.BF[2][1].second, "HH");
+}
+TEST(ProjTest, factory_test) {
+	CArmyFactory* fact = new CArmyFactory(HUMAN);
+	CUnit* inf = fact->createInfantryman(1, 0);
+	CUnit* arc = fact->createArcher(1, 1);
+	CUnit* hor = fact->createHorseman(1, 2);
+	CUnit* ber = fact->createBerserk(1, 3);
+	EXPECT_EQ(inf->get_race(), HUMAN);
+	EXPECT_EQ(inf->return_name(), "HI");
+	EXPECT_EQ(arc->get_race(), HUMAN);
+	EXPECT_EQ(arc->return_name(), "HA");
+	EXPECT_EQ(hor->get_race(), HUMAN);
+	EXPECT_EQ(hor->return_name(), "HH");
+	EXPECT_EQ(ber->get_race(), HUMAN);
+	EXPECT_EQ(ber->return_name(), "HB");
+	delete fact;
+}
+TEST(ProjTest, revival_factory_test) {
+	CArmyFactory* fact = new CArmyFactory(HUMAN);
+	CRevivalFactory* rev = new CRevivalFactory(fact, 90);
+	CUnit* inf = rev->createInfantryman(1, 0);
+	int sum = rev->update_sum();
+	EXPECT_EQ(sum, 70);
+	CUnit* arc = rev->createArcher(1, 1);
+	sum = rev->update_sum();
+	EXPECT_EQ(sum, 60);
+	CUnit* hor = rev->createHorseman(1, 2);
+	sum = rev->update_sum();
+	EXPECT_EQ(sum, 30);
+	CUnit* ber = rev->createBerserk(1, 3);
+	sum = rev->update_sum();
+	EXPECT_EQ(sum, 0);
+	EXPECT_EQ(inf->get_race(), HUMAN);
+	EXPECT_EQ(inf->return_name(), "HI");
+	EXPECT_EQ(arc->get_race(), HUMAN);
+	EXPECT_EQ(arc->return_name(), "HA");
+	EXPECT_EQ(hor->get_race(), HUMAN);
+	EXPECT_EQ(hor->return_name(), "HH");
+	EXPECT_EQ(ber->get_race(), HUMAN);
+	EXPECT_EQ(ber->return_name(), "HB");
+	delete fact;
+	delete rev;
 }
 void testGame() {
 	CGame g;
