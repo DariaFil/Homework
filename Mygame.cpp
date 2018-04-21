@@ -15,8 +15,7 @@ bool right_cin(string data, int min_param, int max_param) {
 
 
 int main() {
-	//test_revival_factory();
-	/*CGame game;
+	CGame game;
 	string size1 = "0";
 	string size2 = "0";
 	while (!right_cin(size1, 10, 50)) {
@@ -86,6 +85,6 @@ int main() {
 	if (winner == -1)
 		cout << "Game was stopped by players" << endl;
 	else
-		cout << "Player " << winner << " win! Congatulations!!!" << endl;*/
+		cout << "Player " << winner << " win! Congatulations!!!" << endl;
 	return 0;
 }
