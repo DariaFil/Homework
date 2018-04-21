@@ -8,6 +8,7 @@
 #include <vector>
 #include <algorithm>
 #include <set>
+#include <cmath>
 
 using std::string;
 using std::vector;
@@ -15,6 +16,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::set;
+using std::abs;
 #endif
 
 class IObject {

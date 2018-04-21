@@ -18,13 +18,15 @@ public:
 	void createBer(CArmy* p, int amount, int side, CArmyFactory* factory, int& army_count);
 	void createArmy(int inf, int arc, int hm, int ber, int side);
 
-	CUnit* choose_unit(int side);
-	void player_step(int side, CUnit* current_unit);
-	void choose_unit_to_buy(int side, int sum);
-	void reviveUnit(CArmy* army, int side, int sum, VarriorType type, CArmyFactory* factory);
+	void player_step(int side);
+	void player_punch(int side);
+	bool check_end();
+	void choose_unit_to_buy(int side);
+	void reviveUnit(CArmy* army, int side, VarriorType type, CArmyFactory* factory);
 private:
 	std::vector<CArmy*> Player_army;
 	int varriors_number;
+	int player_reward = 0;
 	CBattleField* bfield;
 };
 

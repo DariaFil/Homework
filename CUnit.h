@@ -23,20 +23,22 @@ public:
 	void race_protection_bonus(const FieldType& field_type);
 	vector<int> return_state() const;
 	virtual string return_name() const = 0;
+
 	friend class UnitPrinter;
 
 	void set_race(RaceType _race);
 	RaceType get_race();
 	void set_position(int player, int number, int n, int m);
-	void set_InField(const FieldType field);
 
 	void step(Direction direction);
-	//void punch(CUnit* enemy);
+	int damage(int forse, int speed);
+	int dist(int other_x, int other_y);
 	~CUnit();
 	int x;
 	int y;
 	int SIDE;
 	int NUMBER;
+	bool Alive = true;
 protected:
 	int PROTECTION;
 	bool InField = false;

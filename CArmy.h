@@ -11,8 +11,11 @@ public:
 	friend class ArmyPrinter;
 	void push_unit(CUnit* unit);
 	CUnit* return_unit(int num) const;
+	CUnit* choose_unit();
+	vector<int> distances_to_units(int main_x, int main_y);
 	int return_size() const;
 	RaceType return_race() const;
+	bool is_dead();
 private:
 	vector<CUnit*> army_vector;
 };

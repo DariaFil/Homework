@@ -13,8 +13,10 @@ bool right_cin(string data, int min_param, int max_param) {
 		return false;
 }
 
+
 int main() {
-	CGame game;
+	//test_revival_factory();
+	/*CGame game;
 	string size1 = "0";
 	string size2 = "0";
 	while (!right_cin(size1, 10, 50)) {
@@ -64,17 +66,26 @@ int main() {
 	}
 	
 	int side = 0;
+	int winner = -1;
 	string ans = "";
 	cout << "Continue? Yes, No" << endl;
 	cin >> ans;
-	while (ans != "No") {
+	while (ans != "NO") {
 		cout << "Player " << side + 1 << " step" << endl;
-		game.player_step(side, (game.choose_unit(side)));
-		cout << "Continue?" << endl;
+		game.player_step(side);
+		game.player_punch(side);
+		game.choose_unit_to_buy(side);
+		if (game.check_end()) {
+			winner = side + 1;
+			break;
+		}
+		cout << "Continue? Press NO to stop game" << endl;
 		cin >> ans;
-
-		//changing of player
 		side = (side + 1) % 2;
 	}
+	if (winner == -1)
+		cout << "Game was stopped by players" << endl;
+	else
+		cout << "Player " << winner << " win! Congatulations!!!" << endl;*/
 	return 0;
 }

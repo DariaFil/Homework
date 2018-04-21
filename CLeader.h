@@ -21,13 +21,13 @@ public:
 	void set_weapon(const WeaponType& m_weapon);
 	void set_armor(const ArmorType& m_armor);
 	void set_mount(const MountType& m_mount);
-	void set_InField(const FieldType field);
 
 	string info() const;
 
 	string return_name() const;
 	void ability_attack_bonus(const FieldType& field_type);
 private:
+	bool InAbilField = false;
 	AbilityType abil;
 	WeaponType weapon;
 	ArmorType armor;
