@@ -1,6 +1,42 @@
-#include <gtest/gtest.h>
+//#include <gtest/gtest.h>
 #include "CGame.h"
 
+/*void test_army() {
+	CArmy army;
+	CInfantryman* h = new CInfantryman;
+	h->createUnit(1, 0);
+	h->set_race(HUMAN);
+	h->set_position(h->SIDE, h->NUMBER, 1, 1);
+	army.push_unit(h);
+	if (army.return_unit(0) == h)
+		cout << "OK1" << endl;
+	if (army.return_size() == 1)
+		cout << "OK2" << endl;
+	if (army.return_race() == HUMAN)
+		cout << "OK3" << endl;
+	vector<int> dist_control;
+	dist_control.push_back(5);
+	if (army.distances_to_units(2, 3) == dist_control)
+		cout << "OK4" << endl;
+	CUnit* h1 = army.choose_unit();
+	if (h1 == h)
+		cout << "OK5" << endl;
+	if (army.is_dead() == false)
+		cout << "OK6" << endl;
+}
+void test_punched() {
+	CInfantryman h;
+	h.createUnit(1, 1);
+	h.set_race(HUMAN);
+	h.punched(50, 40);
+	if (h.return_state()[2] == 5)
+		cout << "OK" << endl;
+	if (h.Alive == true)
+		cout << "OK1" << endl;
+	h.punched(5, 50);
+	if (h.Alive == false)
+		cout << "OK2" << endl;
+}
 TEST(ProjTest, race_test) {
 	HumanRace h;
 	int prot_b1 = h.add_protection_bonus(FOREST, false);
@@ -220,4 +256,4 @@ int main(int argc, char **argv) {
 	return RUN_ALL_TESTS();
 	testLeaderBuilder();
 	testGame();
-}
+}*/

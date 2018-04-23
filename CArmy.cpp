@@ -41,11 +41,10 @@ int CArmy::return_size() const {
 	return(army_vector.size());
 }
 RaceType CArmy::return_race() const {
-	CLeader* leader = dynamic_cast<CLeader*>(army_vector[0]);
-	return leader->get_race();
+	return army_vector[0]->get_race();
 }
 bool CArmy::is_dead() {
-	if (!army_vector[0]->Alive)
+	if (army_vector[0]->Alive)
 		return false;
 	else
 		return true;

@@ -98,7 +98,12 @@ int CUnit::punched(int forse, int speed) {
 	}
 }
 int CUnit::damage(int forse, int speed) {
-	return round(forse * (1 - (PROTECTION - speed) * 0.01));
+	double prot = 1 - (PROTECTION - speed) * 0.01;
+	if (prot > 1)
+		prot = 1;
+	if (prot < 0)
+		prot = 0;
+	return round(forse * prot);
 }
 int CUnit::dist(int other_x, int other_y) {
 	return abs(x - other_x + y - other_y);
