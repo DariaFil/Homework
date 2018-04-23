@@ -1,21 +1,7 @@
 #include "CGame.h"
 
-bool isParam(string line) {
-	char* p;
-	strtol(line.c_str(), &p, 10);
-	return *p == 0;
-}
 
-bool right_cin(string data, int min_param, int max_param) {
-	if (data.size() < 9 && isParam(data) && stoi(data) >= min_param && stoi(data) <= max_param)
-		return true;
-	else 
-		return false;
-}
-
-
-int main() {
-	CGame game;
+int main() {CGame game;
 	string size1 = "0";
 	string size2 = "0";
 	while (!right_cin(size1, 10, 50)) {
@@ -71,12 +57,22 @@ int main() {
 	cin >> ans;
 	while (ans != "NO") {
 		cout << "Player " << side + 1 << " step" << endl;
+		string ans1;
+		cout << "Do you want to check state of army or unit? Press YES if you want" << endl;
+		cin >> ans1;
+		if (ans1 == "YES")
+			game.print_item(side);
 		game.player_step(side);
 		game.player_punch(side);
-		game.choose_unit_to_buy(side);
 		if (game.check_end()) {
 			winner = side + 1;
 			break;
+		}
+		else {
+			cout << "Do you want to buy unit? Press YES if you want" << endl;
+			cin >> ans1;
+			if (ans1 == "YES")
+				game.choose_unit_to_buy(side);
 		}
 		cout << "Continue? Press NO to stop game" << endl;
 		cin >> ans;

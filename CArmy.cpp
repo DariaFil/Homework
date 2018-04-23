@@ -14,7 +14,7 @@ CUnit* CArmy::return_unit(int num) const {
 	return army_vector[num];
 }
 CUnit* CArmy::choose_unit() {
-	int chosen_num = -1;
+	string chosen_num = "-1";
 	set<int> alive_units;
 	for (int i = 0; i < army_vector.size(); ++i) {
 		CUnit* cur_unit = army_vector[i];
@@ -23,11 +23,11 @@ CUnit* CArmy::choose_unit() {
 			alive_units.insert(cur_unit->NUMBER);
 		}
 	}
-	while (alive_units.find(chosen_num) == alive_units.end()) {
+	while (!right_cin(chosen_num, 0, army_vector.size()) || alive_units.find(stoi(chosen_num)) == alive_units.end()) {
 		cout << "Choose unit:" << endl;
 		cin >> chosen_num;
 	}
-	return army_vector[chosen_num];
+	return army_vector[stoi(chosen_num)];
 }
 vector<int> CArmy::distances_to_units(int main_x, int main_y) {
 	vector<int> dists(army_vector.size(), -1);

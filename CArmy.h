@@ -3,6 +3,7 @@
 
 #include "CUnit.h"
 #include "CLeader.h"
+#include "Right_cin_func.h"
 
 class CArmy : public IObject {
 public:
