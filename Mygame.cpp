@@ -53,7 +53,7 @@ int main() {CGame game;
 	int side = 0;
 	int winner = -1;
 	string ans = "";
-	cout << "Continue? Yes, No" << endl;
+	cout << "Continue? YES, NO" << endl;
 	cin >> ans;
 	while (ans != "NO") {
 		cout << "Player " << side + 1 << " step" << endl;

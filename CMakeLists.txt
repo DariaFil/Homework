@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(gamebot)
 
-set (SOURCES_LIST CArmy.cpp CBattlefield.cpp CRace.cpp CGame.cpp CLeader.cpp CRaceFactory.cpp CUnit.cpp CVarriors.cpp CArmy.h CBattlefield.h CRace.h CGame.h CLeader.h CRaceFactory.h CUnit.h CVarriors.h CFactory.h IObject.h IPrinter.h)
+set (SOURCES_LIST CArmy.cpp CBattlefield.cpp CRace.cpp CGame.cpp CLeader.cpp CRaceFactory.cpp CUnit.cpp CVarriors.cpp CArmy.h CBattlefield.h CRace.h CGame.h CLeader.h CRaceFactory.h CUnit.h CVarriors.h CFactory.h IObject.h IPrinter.h Right_cin_func.cpp Right_cin_func.h)
 
 
 if (DEBUG)

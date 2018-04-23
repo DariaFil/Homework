@@ -1,41 +1,32 @@
-//#include <gtest/gtest.h>
+#include <gtest/gtest.h>
 #include "CGame.h"
 
-/*void test_army() {
+TEST(ProjTest, army_test) {
 	CArmy army;
 	CInfantryman* h = new CInfantryman;
 	h->createUnit(1, 0);
 	h->set_race(HUMAN);
 	h->set_position(h->SIDE, h->NUMBER, 1, 1);
 	army.push_unit(h);
-	if (army.return_unit(0) == h)
-		cout << "OK1" << endl;
-	if (army.return_size() == 1)
-		cout << "OK2" << endl;
-	if (army.return_race() == HUMAN)
-		cout << "OK3" << endl;
+	EXPECT_EQ(army.return_unit(0), h);
+	EXPECT_EQ(army.return_size(), 1);
+	EXPECT_EQ(army.return_race(), HUMAN);
 	vector<int> dist_control;
 	dist_control.push_back(5);
-	if (army.distances_to_units(2, 3) == dist_control)
-		cout << "OK4" << endl;
+	EXPECT_EQ(army.distances_to_units(2, 3), dist_control);
 	CUnit* h1 = army.choose_unit();
-	if (h1 == h)
-		cout << "OK5" << endl;
-	if (army.is_dead() == false)
-		cout << "OK6" << endl;
+	EXPECT_EQ(h1, h);
+	EXPECT_EQ(army.is_dead(), false);
 }
 void test_punched() {
 	CInfantryman h;
 	h.createUnit(1, 1);
 	h.set_race(HUMAN);
 	h.punched(50, 40);
-	if (h.return_state()[2] == 5)
-		cout << "OK" << endl;
-	if (h.Alive == true)
-		cout << "OK1" << endl;
+	EXPECT_EQ(h.return_state()[2], 5);
+	EXPECT_EQ(h.Alive, true);
 	h.punched(5, 50);
-	if (h.Alive == false)
-		cout << "OK2" << endl;
+	EXPECT_EQ(h.Alive, false);
 }
 TEST(ProjTest, race_test) {
 	HumanRace h;
@@ -218,6 +209,10 @@ TEST(ProjTest, factory_test) {
 	EXPECT_EQ(ber->get_race(), HUMAN);
 	EXPECT_EQ(ber->return_name(), "HB");
 	delete fact;
+	delete inf;
+	delete arc;
+	delete hor;
+	delete ber;
 }
 TEST(ProjTest, revival_factory_test) {
 	CArmyFactory* fact = new CArmyFactory(HUMAN);
@@ -244,6 +239,10 @@ TEST(ProjTest, revival_factory_test) {
 	EXPECT_EQ(ber->return_name(), "HB");
 	delete fact;
 	delete rev;
+	delete inf;
+	delete arc;
+	delete hor;
+	delete ber;
 }
 void testGame() {
 	CGame g;
@@ -256,4 +255,4 @@ int main(int argc, char **argv) {
 	return RUN_ALL_TESTS();
 	testLeaderBuilder();
 	testGame();
-}*/
+}

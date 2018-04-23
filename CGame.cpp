@@ -74,7 +74,7 @@ void CGame::createBer(CArmy* p, int amount, int side, CArmyFactory* factory, int
 }
 
 void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
-	CArmy* p = new CArmy;
+	Player_army[side - 1] = new CArmy;
 	varriors_number[side - 1] = inf + arc + hm + ber;
 	player_reward[side - 1] = 0;
 
@@ -89,13 +89,12 @@ void CGame::createArmy(int inf, int arc, int hm, int ber, int side) {
 
 	RaceType race = main_unit->get_race();
 	CArmyFactory* factory = new CArmyFactory(race);
-	p->push_unit(main_unit);
+	Player_army[side - 1]->push_unit(main_unit);
 
-	createInf(p, inf, side, factory, army_count);
-	createArc(p, arc, side, factory, army_count);
-	createHor(p, hm, side, factory, army_count);
-	createBer(p, ber, side, factory, army_count);
-	Player_army[side - 1] = p;
+	createInf(Player_army[side - 1], inf, side, factory, army_count);
+	createArc(Player_army[side - 1], arc, side, factory, army_count);
+	createHor(Player_army[side - 1], hm, side, factory, army_count);
+	createBer(Player_army[side - 1], ber, side, factory, army_count);
 	BattlefieldPrinter fp;
 	fp.print(bfield);
 	delete factory;
@@ -177,6 +176,7 @@ void CGame::player_punch(int side) {
 
 void CGame::choose_unit_to_buy(int side) {
 	if (player_reward[side] == 0) {
+		cout << "Not enough money to buy any unit" << endl;
 		return;
 	}
 	RaceType race = Player_army[side]->return_race();
@@ -248,7 +248,7 @@ void CGame::reviveUnit(CArmy* army, int side, VarriorType type, CArmyFactory* fa
 	bfield->set_position(i, player_side, army->return_unit(army->return_size() - 1)->return_name());
 }
 bool CGame::check_end() {
-	if (!Player_army[0]->is_dead() && !Player_army[1]->is_dead())
+	if (Player_army[0]->is_dead() || Player_army[1]->is_dead())
 		return true;
 	else
 		return false;
