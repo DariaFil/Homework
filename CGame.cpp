@@ -167,7 +167,7 @@ void CGame::player_punch(int side) {
 	int at_forse = current_unit->return_state()[4];
 	int old_rew = player_reward[side];
 	CUnit* cur_enemy = Player_army[(side + 1) % 2]->return_unit(stoi(enemy_num));
-	player_reward[side] += cur_enemy->damage(at_forse, at_speed);
+	player_reward[side] += cur_enemy->punched(at_forse, at_speed);
 	if (old_rew != player_reward[side]) {
 		bfield->set_position(cur_enemy->x, cur_enemy->y, "");
 		BattlefieldPrinter printer;

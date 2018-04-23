@@ -31,6 +31,7 @@ public:
 	void set_position(int player, int number, int n, int m);
 
 	void step(Direction direction);
+	int punched(int forse, int speed);
 	int damage(int forse, int speed);
 	int dist(int other_x, int other_y);
 	~CUnit();
