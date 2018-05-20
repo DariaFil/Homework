@@ -74,7 +74,6 @@ void CLeader::set_mount(const MountType& m_mount) {
 	}
 }
 
-
 string CLeader::info() const {
 	string s = "Your leader of ";
 	s += race->race_info();
@@ -119,34 +118,34 @@ string CLeader::return_name() const {
 	return race->return_race_name() + "L";
 }
 void CLeader::ability_attack_bonus(const FieldType& field_type) {
-	if (field_type == FIELD && abil == RUNNING && !InField) {
+	if (field_type == FIELD && abil == RUNNING && !InAbilField) {
 		ATTACK_SPEED += 10;
 		InField = true;
 	}
-	if (field_type == WATER && abil == SWIMMING && !InField) {
+	if (field_type == WATER && abil == SWIMMING && !InAbilField) {
 		ATTACK_SPEED += 10;
 		InField = true;
 	}
-	if (field_type == WATER && abil == FLYING && !InField) {
+	if (field_type == WATER && abil == FLYING && !InAbilField) {
 		ATTACK_SPEED -= 10;
 		InField = true;
 	}
-	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && !InField) {
+	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && !InAbilField) {
 		ATTACK_SPEED += 10;
 		InField = true;
 	}
-	if (field_type != FIELD && abil == RUNNING && InField) {
-		ATTACK_SPEED -= 10;
-		InField = false;
-	}
-	if (field_type != WATER && abil == SWIMMING && InField) {
+	if (field_type != FIELD && abil == RUNNING && InAbilField) {
 		ATTACK_SPEED -= 10;
 		InField = false;
 	}
-	if (field_type == WATER && abil == FLYING && InField) {
+	if (field_type != WATER && abil == SWIMMING && InAbilField) {
+		ATTACK_SPEED -= 10;
+		InField = false;
+	}
+	if (field_type == WATER && abil == FLYING && InAbilField) {
 		ATTACK_SPEED += 20;
 	}
-	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && InField) {
+	if ((field_type == FIELD || field_type == FOREST) && abil == FLYING && InAbilField) {
 		ATTACK_SPEED += 20;
 	}
 }

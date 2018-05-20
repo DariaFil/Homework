@@ -22,7 +22,7 @@ void CBattleField::set_position(int i, int j, const string& data) {
 	BF[j][i].second = data;
 }
 
-bool CBattleField::correct_direction(int x, int y, Direction dir) const {
+bool CBattleField::correct_direction(size_t x, size_t y, Direction dir) const {
 	switch (dir) {
 	case UP:
 		if (y - 1 >= 0 && BF[y - 1][x].second == "")
@@ -51,8 +51,8 @@ bool CBattleField::correct_direction(int x, int y, Direction dir) const {
 
 void BattlefieldPrinter::print(IObject* battlefield) const {
 	CBattleField* bf = dynamic_cast<CBattleField*>(battlefield);
-	for (int i = 0; i < bf->BF.size(); ++i) {
-		for (int j = 0; j < bf->BF[i].size(); ++j)
+	for (size_t i = 0; i < bf->BF.size(); ++i) {
+		for (size_t j = 0; j < bf->BF[i].size(); ++j)
 			if (bf->BF[i][j].second == "") {
 				if (bf->BF[i][j].first == FIELD)
 					cout << "_  ";

@@ -50,9 +50,6 @@ void CUnit::race_protection_bonus(const FieldType& field_type) {
 	if (old_prot != PROTECTION)
 		InField = !InField;
 }
-void CUnit::set_InField(const FieldType field) {
-	InField = race->set_race_InField(field);
-}
 CUnit::~CUnit() {
 	delete race;
 }
@@ -86,4 +83,28 @@ void CUnit::step(Direction direction) {
 		x += 1;
 		break;
 	}
+}
+int CUnit::punched(int forse, int speed) {
+	int lost = damage(forse, speed);
+	HP -= lost;
+	if (HP <= 0) {
+		cout << return_name() << " " << NUMBER << " died" << endl;
+		Alive = false;
+		return REWARD;
+	}
+	else {
+		cout << return_name() << " lost " << lost << " health points" << endl;
+		return 0;
+	}
+}
+int CUnit::damage(int forse, int speed) {
+	double prot = 1 - (PROTECTION - speed) * 0.01;
+	if (prot > 1)
+		prot = 1;
+	if (prot < 0)
+		prot = 0;
+	return round(forse * prot);
+}
+int CUnit::dist(int other_x, int other_y) {
+	return abs(x - other_x + y - other_y);
 }

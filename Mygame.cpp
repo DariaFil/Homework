@@ -1,80 +1,60 @@
-#include "CGame.h"
-
-bool isParam(string line) {
-	char* p;
-	strtol(line.c_str(), &p, 10);
-	return *p == 0;
-}
-
-bool right_cin(string data, int min_param, int max_param) {
-	if (data.size() < 9 && isParam(data) && stoi(data) >= min_param && stoi(data) <= max_param)
-		return true;
-	else 
-		return false;
-}
+#include "Command.h"
+#include <queue>
 
 int main() {
-	CGame game;
-	string size1 = "0";
-	string size2 = "0";
-	while (!right_cin(size1, 10, 50)) {
-		cout << "Choose field width:" << endl;
-		cin >> size1;
-	}
-	while (!right_cin(size2, 10, 50)) {
-		cout << "Choose field hight:" << endl;
-		cin >> size2;
-	}
-	game.createBattleField(stoi(size1), stoi(size2));
+	CGame* game = new CGame;
+	queue<Command*> list_of_commands;
+	Command* create_command = new CreateGameCommand(game);
+	Memento* undo_game = new Memento();
+	list_of_commands.push(create_command);
 	
-	string asize = "1";
-	while (!right_cin(asize, 2, min(stoi(size1), stoi(size2)))) {
-		cout << "Choose army size:" << endl;
-		cin >> asize;
-	}
-	for (int p = 0; p < 2; ++p) {
-		cout << "Player " << p + 1 << ":" << endl;
-		string i = asize;
-		string a = asize;
-		string h = asize;
-		string b = asize; 
-		while (stoi(i) + stoi(a) + stoi(b) + stoi(h) != stoi(asize) - 1) {
-			i = asize;
-			a = asize;
-			h = asize;
-			b = asize;
-			while (!right_cin(i, 0, stoi(asize) - 1)) {
-				cout << "Choose number of infantrymen:" << endl;
-				cin >> i;
-			}
-			while (!right_cin(a, 0, stoi(asize) - 1)) {
-				cout << "Choose number of archers:" << endl;
-				cin >> a;
-			}
-			while (!right_cin(h, 0, stoi(asize) - 1)) {
-				cout << "Choose number of horsemen:" << endl;
-				cin >> h;
-			}
-			while (!right_cin(b, 0, stoi(asize) - 1)) {
-				cout << "Choose number of berserks:" << endl;
-				cin >> b;
-			}
-		}
-		game.createArmy(stoi(i), stoi(a), stoi(h), stoi(b), p + 1);
-	}
-	
-	int side = 0;
+	int winner = 0;
 	string ans = "";
 	cout << "Continue? Yes, No" << endl;
 	cin >> ans;
-	while (ans != "No") {
-		cout << "Player " << side + 1 << " step" << endl;
-		game.player_step(side, (game.choose_unit(side)));
-		cout << "Continue?" << endl;
+	while (ans != "NO") {
+		while (!list_of_commands.empty()) {
+			Command* cur_command = list_of_commands.front();
+			list_of_commands.pop();
+			cur_command->execute(undo_game);
+			delete cur_command;
+		}
+		cout << "Would you like to save the game? Press YES to save game" << endl;
 		cin >> ans;
-
-		//changing of player
-		side = (side + 1) % 2;
+		if (ans == "YES") {
+			Command* save_command = new SaveGameCommand(game);
+			list_of_commands.push(save_command);
+		}
+		else {
+			cout << "Would you like to rollback the game? Press YES to rollback" << endl;
+			cin >> ans;
+			if (ans == "YES") {
+				Command* rollback_command = new LoadCheckpointCommand(game);
+				list_of_commands.push(rollback_command);
+				Command* step_command = new MakeMoveCommand(game);
+				list_of_commands.push(step_command);
+			}
+			else {
+				Command* step_command = new MakeMoveCommand(game);
+				Command* change_command = new ChangePlayerCommand(game);
+				list_of_commands.push(step_command);
+				list_of_commands.push(change_command);
+			}
+		}
+		if (winner = game->check_end())
+			break;
+		cout << "Continue? Press NO to stop game" << endl;
+		cin >> ans;
 	}
+	while (!list_of_commands.empty()) {
+		Command* cur_command = list_of_commands.front();
+		list_of_commands.pop();
+		delete cur_command;
+	}	
+	if (!winner)
+		cout << "Game was stopped by players" << endl;
+	else
+		cout << "Player " << winner << " win! Congatulations!!!" << endl;
+	delete game;
 	return 0;
 }
