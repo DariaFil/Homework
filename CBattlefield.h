@@ -27,7 +27,7 @@ public:
 	~CBattleField();
 	friend class BattlefieldPrinter;
 	void set_position(int i, int j, const std::string& data);
-	bool correct_direction(int x, int y, Direction dir) const;
+	bool correct_direction(size_t x, size_t y, Direction dir) const;
 
 	std::vector<std::vector<std::pair<FieldType, std::string>>> BF;
 };

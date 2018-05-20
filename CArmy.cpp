@@ -2,8 +2,7 @@
 
 CArmy::CArmy() {}
 CArmy::~CArmy() {
-	int i;
-	for (i = 0; i < army_vector.size(); ++i)
+	for (size_t i = 0; i < army_vector.size(); ++i)
 		delete army_vector[i];
 }
 
@@ -16,7 +15,7 @@ CUnit* CArmy::return_unit(int num) const {
 CUnit* CArmy::choose_unit() {
 	string chosen_num = "-1";
 	set<int> alive_units;
-	for (int i = 0; i < army_vector.size(); ++i) {
+	for (size_t i = 0; i < army_vector.size(); ++i) {
 		CUnit* cur_unit = army_vector[i];
 		if (cur_unit->Alive) {
 			cout << cur_unit->NUMBER << " " << cur_unit->return_name() << " " << cur_unit->x << " " << cur_unit->y << endl;
@@ -31,7 +30,7 @@ CUnit* CArmy::choose_unit() {
 }
 vector<int> CArmy::distances_to_units(int main_x, int main_y) {
 	vector<int> dists(army_vector.size(), -1);
-	for (int i = 0; i < army_vector.size(); ++i)
+	for (size_t i = 0; i < army_vector.size(); ++i)
 		if (army_vector[i]->Alive) {
 			dists[i] = army_vector[i]->dist(main_x, main_y);
 	}
@@ -54,9 +53,8 @@ bool CArmy::is_dead() {
 void ArmyPrinter::print(IObject* army) const {
 	CArmy* a = dynamic_cast<CArmy*>(army);
 	cout << a->return_race() << " army" << endl;
-	int i;
 	UnitPrinter printer;
-	for (i = 0; i < a->army_vector.size(); ++i) {
+	for (size_t i = 0; i < a->army_vector.size(); ++i) {
 		a->army_vector[i]->info();
 		printer.print(a->army_vector[i]);
 	}
